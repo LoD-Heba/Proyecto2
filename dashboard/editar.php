@@ -1,73 +1,44 @@
-<?php 
-    include("conexion.php");
+<?php
+// Conexión a la base de datos
+$conection = mysqli_connect("localhost", "root", "", "club_frijol");
+
+// Obtener el ID del usuario a editar
+$id = $_GET['id'];
+
+// Obtener los datos del usuario
+$sql = "SELECT * FROM registro_usuario WHERE id = $id";
+$resultado = mysqli_query($conection, $sql);
+$fila = mysqli_fetch_assoc($resultado);
+
+// Si se ha enviado el formulario, actualizar el registro
+if (isset($_POST['actualizar'])) {
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+    $usuario = $_POST['usuario'];
+
+    $sql_update = "UPDATE registro_usuario SET nombre='$nombre', correo='$correo', usuario='$usuario' WHERE id=$id";
+    
+    if (mysqli_query($conection, $sql_update)) {
+        echo "Registro actualizado correctamente";
+        // Redirigir a la página de la lista
+        header("Location: index.php");
+    } else {
+        echo "Error: " . mysqli_error($conection);
+    }
+}
 ?>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="estilosadmi.css">
-</head>
-<body>
-    <?php 
-        if (isset($_POST['enviar'])){
-            $id=$_POST['id'];
-            $nombre=$_POST['nombre'];
-            $nocontrol=$_POST['nocontrol'];
 
-            $sql="UPDATE alumnos SET nombre='".$nombre."', 
-            nocontrol='".$nocontrol."' where id='".$id."'";
-            $resultado=mysqli_query($conexion,$sql);
+<!-- Formulario para editar el usuario -->
+<h2>Editar Usuario</h2>
+<form action="" method="post">
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" value="<?php echo $fila['nombre']; ?>"><br>
 
-            if($resultado){
-                echo "<script language='JavaScript'>
-                    alert('Los datos se actualizaron');
-                    
-                    location.assign('usuarios.php');
-                    </script>";            
-                }
-                else{
-                    echo "<script language='JavaScript'>
-                    alert('Los datos no se actualizaron');
-                    
-                    location.assign('usuarios.php');
-                    </script>";            
-                }
-                mysqli_close($conexion);
-        }
-        else{
-        // $id=$_GET['id'];
-        // $sql="SELECT * FROM escuela where id='".$id."'";
-        // $resultado=mysqli_query($conexion,$sql);
-        // $fila=mysqli_fetch_assoc($resultado);
-            $id=$_GET['id'];
-            $sql="SELECT * FROM alumnos where id='".$id."'";
-            $resultado=mysqli_query($conexion,$sql);
-            
-            $fila=mysqli_fetch_assoc($resultado);
-            $nombre=$fila['nombre'];
-            $nocontrol=$fila['nocontrol'];
+    <label>Correo:</label><br>
+    <input type="email" name="correo" value="<?php echo $fila['correo']; ?>"><br>
 
-            mysqli_close($conexion); 
-    ?>
-    <h1>Editar tabla</h1>
-    <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+    <label>Usuario:</label><br>
+    <input type="text" name="usuario" value="<?php echo $fila['usuario']; ?>"><br>
 
-        <label for="">Nombre:</label>
-        <input type="text" name="nombre" value="<?php echo $nombre; ?>"> <br>
-
-        <label for="">No. control</label>
-        <input type="text" name="nocontrol" value="<?php echo $nocontrol; ?>"> <br>
-
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-        <input type="submit" name="enviar" value="ACTUALIZAR">
-        <a href="usuarios.php">Regresar</a>
-
-
-    </form>
-    <?php 
-        }
-    ?>
-</body>
-</html>
+    <input type="submit" name="actualizar" value="Actualizar">
+</form>

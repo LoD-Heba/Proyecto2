@@ -16,7 +16,7 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="indexadmi.html">
+                    <a href="">
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
@@ -61,25 +61,25 @@
                 </li>
 
                 <li>
-                    <a href="config.php">
+                    <a href="configuracion.php">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>
-                        <span class="title">Settings</span>
+                        <span class="title">Configurar</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="../index.php">
                         <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <ion-icon name="lock-closed-outline">Regresar</ion-icon>
                         </span>
-                        <span class="title"></span>
+                        <span class="title">Regresar</span>
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
+                <li>.
+                    <a href="">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -98,7 +98,7 @@
 
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                        <input type="text" placeholder="Buscar">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -112,8 +112,8 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Vistas diarias</div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">Vistas</div>
                     </div>
 
                     <div class="iconBx">
@@ -123,8 +123,8 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Compras</div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">ventas</div>
                     </div>
 
                     <div class="iconBx">
@@ -134,7 +134,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">284</div>
+                        <div class="numbers">1</div>
                         <div class="cardName">Comentarios</div>
                     </div>
 
@@ -142,22 +142,48 @@
                         <ion-icon name="chatbubbles-outline"></ion-icon>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>     
             </div>
+
+
+
+            <!-- ================ Order Details List ================= -->
+        <div class="details">
+            <div class="recentOrders">
+            <!-- Fin conexion -->
+                <h1>Lista de alumnos</h1>
+                <a href="agregar.php">Agrar alumno</a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                            <th>Editor</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                            <th>
+                                <a href="">Editar</a>
+                                -
+                                <a href="">Eliminar</a>
+                            </th>
+                            </tr>
+                    </tbody>
+                 </table>
+            </div>
+
         </div>
     </div>
-
+</div>
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
 

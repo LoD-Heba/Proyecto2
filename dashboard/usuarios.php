@@ -66,11 +66,11 @@
                 </li>
 
                 <li>
-                    <a href="config.php">
+                    <a href="configuracion.php">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>
-                        <span class="title">Settings</span>
+                        <span class="title">Configurar</span>
                     </a>
                 </li>
 
@@ -103,7 +103,7 @@
 
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                        <input type="text" placeholder="Buscar">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -117,8 +117,8 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">Vistas</div>
                     </div>
 
                     <div class="iconBx">
@@ -128,8 +128,8 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">ventas</div>
                     </div>
 
                     <div class="iconBx">
@@ -139,83 +139,71 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">Comentarios</div>
                     </div>
 
                     <div class="iconBx">
                         <ion-icon name="chatbubbles-outline"></ion-icon>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
             </div>
 
+
+
             <!-- ================ Order Details List ================= -->
-    <div class="details">
-        <div class="recentOrders">
-            <?php 
-                include("conexion.php");
-                $sql="SELECT * FROM alumnos";
-                $resultado=mysqli_query($conexion,$sql);
-            ?>
+            <?php
+// Conexión a la base de datos
+$conection = mysqli_connect("localhost", "root", "", "club_frijol");
+
+// Consulta para obtener los registros de los usuarios
+$sql = "SELECT id, nombre, correo, usuario, password FROM registro_usuario";
+$resultado = mysqli_query($conection, $sql);
+
+?>
+        <div class="details">
+            <div class="recentOrders">
             <!-- Fin conexion -->
-                <h1>Lista de alumnos</h1>
-                <a href="agregar.php">Agrar alumno</a>
+                <h1>Lista de usuarios</h1>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Usuario</th>
-                            <th>Contraseña</th>
-                            <th>Editor</th>
-                        </tr>
-                    </thead>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Usuario</th>
+                    <th>Editor</th>
+                </tr>
+            </thead>
 
-                    <tbody>
-                        <?php 
-                        while($filas = mysqli_fetch_assoc($resultado)){
-                        ?>
-                        <tr>
-                            <th><?php echo $filas['id']?></th>
-                            <th><?php echo $filas['nombre']?></th>
-                            <th><?php echo $filas['correo']?></th>
-                            <th><?php echo $filas['usuario']?></th>
-                            <th><?php echo $filas['nocontrol']?></th>
-                            <th>
-                                <?php echo "<a href='editar.php?id=".$filas['id']."'>Editar</a>";?>
-                                -
-                                <?php echo "<a href='eliminar.php?id=".$filas['id']."' onclick='return confirmar ()'>Eliminar</a>";?>
-                            </th>
-                            
-                        
-                            </tr>
-                
-                        <?php 
-                        }
-                        ?>
-                    </tbody>
-
-    </table>
-            <?php 
-                mysqli_close($conexion);
-            ?>
-        </div>
-
-    </div>
+            <tbody>
+                <?php
+                // Verificar si hay resultados
+                if (mysqli_num_rows($resultado) > 0) {
+                    // Iterar sobre los resultados
+                    while ($fila = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td>" . $fila['id'] . "</td>";
+                        echo "<td>" . $fila['nombre'] . "</td>";
+                        echo "<td>" . $fila['correo'] . "</td>";
+                        echo "<td>" . $fila['usuario'] . "</td>";
+                        echo "<td>
+                                <a href='editar.php?id=" . $fila['id'] . "'>Editar</a> -
+                               
+                                <a href='eliminar.php?id=".$fila['id']."' onclick='return confirmar ()'>Eliminar</a>";
+                             
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='6'>No hay usuarios registrados</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+            </div>
         </div>
     </div>
+</div>
 
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>

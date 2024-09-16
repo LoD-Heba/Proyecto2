@@ -56,11 +56,13 @@
 				<img src="img/logo.png" alt="Logo" class="img-logo" />
 				</a>
 				<nav class="nav-list">
+					<a href="dashboard/indexadmi.php">Admin</a>
 					<a href="index.php">Inicio</a>
-					<a href="tienda.php">Tienda</a>
-					<a href="#">Blog</a>
-					<a href="#">Nosotros</a>
-					<a href="#">Contacto</a>
+					<a href="tienda.php">Flores</a>
+					<a href="#">Plantas interior</a>
+					<a href="#">Plantas exterior</a>
+					<a href="#">Arbustos</a>
+					<a href="#">contactos</a>
 				</nav>
 
 				<div class="container-actions">
@@ -78,6 +80,14 @@
 			</div>
 		</header>
         <!-- Navbar end -->
+
+<!-- Contenido start-->
+
+
+
+
+<!-- Contenido end -->
+
         <footer>
 			<div class="section-footer container">
 				<div class="footer-section-logo">

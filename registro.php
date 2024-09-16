@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -19,7 +20,7 @@
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 
-
+	<body>
         <!-- Navbar start-->
 		<header>
 			<div class="container section-logo">
@@ -28,11 +29,13 @@
 				<img src="img/logo.png" alt="Logo" class="img-logo" />
 				</a>
 				<nav class="nav-list">
+					<a href="dashboard/indexadmi.php">Admin</a>
 					<a href="index.php">Inicio</a>
-					<a href="tienda.php">Tienda</a>
-					<a href="#">Blog</a>
-					<a href="#">Nosotros</a>
-					<a href="#">Contacto</a>
+					<a href="tienda.php">Flores</a>
+					<a href="#">Plantas interior</a>
+					<a href="#">Plantas exterior</a>
+					<a href="#">Arbustos</a>
+					<a href="#">contactos</a>
 				</nav>
 
 				<div class="container-actions">
@@ -150,8 +153,7 @@
 				</div>
 			</div>
 		</footer>
-		<script src="assets/script.js"></script>
+		<script src="assets/js/script.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="/assets/sweetalert.js"></script>
 	</body>
 </html>

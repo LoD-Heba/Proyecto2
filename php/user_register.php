@@ -7,15 +7,19 @@
         $nombre = $_POST['nombre'];
         $correo = $_POST['correo'];
         $usuario = $_POST['usuario'];
-        $password = $_POST['password'];
+        $clave = $_POST['clave'];
 
         // Encriptar
 
-        $password = hash('sha512', $password);
+        $registrar =   "INSERT INTO registro_usuario(nombre, correo, usuario, clave) 
+                    VALUES('$nombre', '$correo', '$usuario', '$clave')";
+                    if (mysqli_query($conection, $registrar)) {
+                        echo "Usuario registrado con éxito";
+                    } else {
+                        echo "Error: " . mysqli_error($conection);
+                    }
 
-        $registrar =   "INSERT INTO registro_usuario(nombre, correo, usuario, password) 
-                    VALUES('$nombre', '$correo', '$usuario', '$password')";
-                                // llave
+        // llave
 
                                 
         // Verificar registro repetido
@@ -23,7 +27,7 @@
                 if(mysqli_num_rows($verificar) > 0){
                         echo '
                                 <script>
-                                alert("El correo ya está siendo usado");
+                                alert("Registrado");
                                 window.location = "../registro.php";
                                 </script>
                         ';
@@ -40,7 +44,9 @@
                         ';
                         exit();
                 }        
+        // Fin Verificar
 
+        // Registro exitoso o error
         $ejecutar = mysqli_query($conection, $registrar);    
         if ($ejecutar){
                 echo '
@@ -60,6 +66,6 @@
                         </script>
                 ';
         }
-
+        //Fin registro
         mysqli_close($conection);
 ?>

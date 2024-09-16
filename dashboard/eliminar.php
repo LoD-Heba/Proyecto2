@@ -1,26 +1,17 @@
-<?php 
-$id=$_GET['id'];
-include("conexion.php");
+<?php
+// Conexión a la base de datos
+$conection = mysqli_connect("localhost", "root", "", "club_frijol");
 
-$sql="DELETE FROM alumnos where id='".$id."'";
-$resultado=mysqli_query($conexion,$sql);
+// Obtener el ID del usuario a eliminar
+$id = $_GET['id'];
 
-if($resultado){
-        echo "<script language='JavaScript'>
-            alert('Los datos se eliminaron');
-            
-            location.assign('usuarios.php');
-            </script>";            
-        }
-        else{
-            echo "<script language='JavaScript'>
-            alert('Los datos no se eliminaron');
-            
-            location.assign('usuarios.php');
-            </script>";            
-        }
-        mysqli_close($conexion);
+// Eliminar el registro del usuario
+$sql = "DELETE FROM registro_usuario WHERE id = $id";
 
-
-
+if (mysqli_query($conection, $sql)) {
+    echo "Registro eliminado correctamente";
+    header("Location: usuarios.php");
+} else {
+    echo "Error: " . mysqli_error($conection);
+}
 ?>

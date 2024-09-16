@@ -1,13 +1,7 @@
 <?php
-    $conection = mysqli_connect("localhost", "root","","plantas");
-
-        // if ($conection){
-        //     echo 'Conectado a la base de datos';
-        // }
-        // else {
-        //     'Error de conexión';
-        // }
-
+    $conection = mysqli_connect("localhost", "root","","club_frijol");
         
-
+    if (!$conection) {
+        die("Error de conexión: " . mysqli_connect_error());
+    }
 ?>
