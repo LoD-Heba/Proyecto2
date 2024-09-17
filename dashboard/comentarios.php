@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="estilosadmi.css">
+    <link rel="stylesheet" href="assets/css/estilosadmi.css">
 </head>
 
 <body>
@@ -107,81 +107,9 @@
                     <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
-
-            <!-- ======================= Cards ================== -->
-            <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1</div>
-                        <div class="cardName">Vistas</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">1</div>
-                        <div class="cardName">ventas</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">1</div>
-                        <div class="cardName">Comentarios</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>
+<!-- Contenido start -->
 
 
-
-            <!-- ================ Order Details List ================= -->
-        <div class="details">
-            <div class="recentOrders">
-            <!-- Fin conexion -->
-                <h1>Lista de alumnos</h1>
-                <a href="agregar.php">Agrar alumno</a>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Usuario</th>
-                            <th>Contraseña</th>
-                            <th>Editor</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Usuario</th>
-                            <th>Contraseña</th>
-                            <th>
-                                <a href="">Editar</a>
-                                -
-                                <a href="">Eliminar</a>
-                            </th>
-                            </tr>
-                    </tbody>
-                 </table>
-            </div>
-
-        </div>
     </div>
 </div>
     <!-- =========== Scripts =========  -->

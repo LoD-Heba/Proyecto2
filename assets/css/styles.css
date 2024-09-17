@@ -29,7 +29,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(img/background.jpg);
+    background-image: url(../img/background.jpg);
     background-size: 200px 200px;
     opacity: 0.5; /* Cambia este valor para ajustar la opacidad */
     z-index: -1; /* Envía el pseudo-elemento detrás del contenido */

@@ -15,7 +15,7 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
 	</head>
 
 	<body>
@@ -44,12 +44,12 @@
 			<div class="container section-logo">
 				<button class="menu-toggle">Cerrar</button>
 				<a href="index.php">
-				<img src="img/logo.png" alt="Logo" class="img-logo" />
+				<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
 				</a>
 				<nav class="nav-list">
 					<a href="dashboard/indexadmi.php">Admin</a>
 					<a href="index.php">Inicio</a>
-					<a href="tienda.php">Flores</a>
+					<a href="flores.php">Flores</a>
 					<a href="#">Plantas interior</a>
 					<a href="#">Plantas exterior</a>
 					<a href="#">Arbustos</a>
@@ -94,7 +94,7 @@
 			</div>
 			<div class="container-img-hero">
 				<div class="img-hero">
-					<img src="img/header-img.png" alt="Imagen Header" />
+					<img src="assets/img/header-img.png" alt="Imagen Header" />
 				</div>
 
 				<div class="message-float-header">
@@ -113,26 +113,26 @@
 			<div class="container-cards-categories">
 				<div class="card-category">
 					<div class="img-category">
-						<img src="img/category-1.png" alt="Category 1" />
+						<img src="assets/img/category-1.png" alt="Category 1" />
 					</div>
 					<h3>Plantas de Interior</h3>
 				</div>
 				<div class="card-category">
 					<div class="img-category">
-						<img src="img/category-2.png" alt="Category 2" />
+						<img src="assets/img/category-2.png" alt="Category 2" />
 					</div>
 					<h3>Plantas de Exterior</h3>
 				</div>
 				<div class="card-category">
 					<div class="img-category">
-						<img src="img/category-3.png" alt="Category 3" />
+						<img src="assets/img/category-3.png" alt="Category 3" />
 					</div>
 
 					<h3>Arbustos</h3>
 				</div>
 				<div class="card-category">
 					<div class="img-category">
-						<img src="img/category-4.png" alt="Category 4" />
+						<img src="assets/img/category-4.png" alt="Category 4" />
 					</div>
 
 					<h3>Flores</h3>
@@ -152,7 +152,7 @@
 <!-- end new -->
 				<div class="card-product">
 					<div class="img-product">
-						<img src="img/imagen-product-2.png" alt="Product 2" />
+						<img src="assets/img/imagen-product-1.png" alt="Product 1" />
 					</div>
 					<div class="header-card">
 						<span>
@@ -193,7 +193,7 @@
 			<div class="carousel-reviews">
 				<div class="card-review">
 					<div class="img-review">
-						<img src="img/user.svg" alt="Photo User 1" />
+						<img src="assets/img/user.svg" alt="Photo User 1" />
 					</div>
 					<div class="info-review">
 						<h3>John Doe</h3>
@@ -234,7 +234,7 @@
 		<footer>
 			<div class="section-footer container">
 				<div class="footer-section-logo">
-					<img src="img/logo.png" alt="Logo" class="img-logo" />
+					<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
 
 					<p>
 						Ofrecemos una amplia variedad de plantas de interior y
@@ -285,15 +285,6 @@
 				</div>
 				
 			</div>
-			<!-- <form class="newsletter-form">
-				<input
-					type="email"
-					placeholder="Tu correo electrónico"
-				/>
-				<button type="submit">
-					<i class="fas fa-arrow-right"></i>
-				</button>
-			</form> -->
 		</footer>
 		<script src="assets/Menu.js"></script>
 	</body>

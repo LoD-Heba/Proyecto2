@@ -17,7 +17,7 @@
 			referrerpolicy="no-referrer"
 		/>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
 	</head>
 
 	<body>
@@ -26,7 +26,7 @@
 			<div class="container section-logo">
 				<button class="menu-toggle">Cerrar</button>
 				<a href="index.php">
-				<img src="img/logo.png" alt="Logo" class="img-logo" />
+				<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
 				</a>
 				<nav class="nav-list">
 					<a href="dashboard/indexadmi.php">Admin</a>
@@ -75,20 +75,20 @@
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form action="php/login_user.php" class="formulario__login" method="POST">
+                    <form action="php/login_user.php" class="formulario__login" method="POST" >
                         <h2>Iniciar Sesión</h2>
-                        <input type="text" placeholder="Correo Electronico" name="correo">
-                        <input type="password" placeholder="Contraseña" name>
+                        <input type="text" placeholder="Correo Electronico" name="correo" required>
+                        <input type="password" placeholder="Contraseña" name required>
                         <button>Entrar</button>
                     </form>
 
                     <!--Register-->
                     <form action="php/user_register.php" method="POST" class="formulario__register"> 
                         <h2>Regístrarse</h2>
-                        <input type="text" placeholder="Nombre completo" name="nombre">
-                        <input type="text" placeholder="Correo Electronico" name="correo">
-                        <input type="text" placeholder="Usuario" name="usuario">
-                        <input type="password" placeholder="Contraseña" name="password">
+                        <input type="text" placeholder="Nombre completo" name="nombre" required>
+                        <input type="text" placeholder="Correo Electronico" name="correo" required>
+                        <input type="text" placeholder="Usuario" name="usuario" required>
+                        <input type="password" placeholder="Contraseña" name="password" required>
                         <button>Regístrarse</button>
                     </form>
                 </div>
@@ -101,7 +101,7 @@
         <footer>
 			<div class="section-footer container">
 				<div class="footer-section-logo">
-					<img src="img/logo.png" alt="Logo" class="img-logo" />
+					<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
 
 					<p>
 						Ofrecemos una amplia variedad de plantas de interior y

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="estilosadmi.css">
+    <link rel="stylesheet" href="assets/css/estilosadmi.css">
 </head>
 
 <body>

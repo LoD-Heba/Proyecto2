@@ -7,7 +7,7 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Club del Frijol</title>
-		<link rel="icon" href="img/ico.png" />
+		<link rel="icon" href="assets/img/ico.png" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -15,7 +15,7 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
 	</head>
 
 	<body>
@@ -53,12 +53,12 @@
 			<div class="container section-logo">
 				<button class="menu-toggle">Cerrar</button>
 				<a href="index.php">
-				<img src="img/logo.png" alt="Logo" class="img-logo" />
+				<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
 				</a>
 				<nav class="nav-list">
 					<a href="dashboard/indexadmi.php">Admin</a>
 					<a href="index.php">Inicio</a>
-					<a href="tienda.php">Flores</a>
+					<a href="flores.php">Flores</a>
 					<a href="#">Plantas interior</a>
 					<a href="#">Plantas exterior</a>
 					<a href="#">Arbustos</a>
@@ -66,10 +66,10 @@
 				</nav>
 
 				<div class="container-actions">
-					<a href="https://www.ejemplo1.com" class="icon-button">
+					<a href="#" class="icon-button">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</a>
-					<a href="https://www.ejemplo2.com" class="icon-button">
+					<a href="#" class="icon-button">
 						<i class="fa-regular fa-bell"></i>
 					</a>
 					<a href="registro.php" class="register-button">
@@ -80,10 +80,68 @@
 			</div>
 		</header>
         <!-- Navbar end -->
+		<section class="section-categories container">
+			<h2>Categorías</h2>
+
+			<div class="container-cards-categories">
+				<div class="card-category">
+					<div class="img-category">
+						<img src="assets/img/category-1.png" alt="Category 1" />
+					</div>
+					<h3>Plantas de Interior</h3>
+				</div>
+				<div class="card-category">
+					<div class="img-category">
+						<img src="assets/img/category-2.png" alt="Category 2" />
+					</div>
+					<h3>Plantas de Exterior</h3>
+				</div>
+				<div class="card-category">
+					<div class="img-category">
+						<img src="assets/img/category-3.png" alt="Category 3" />
+					</div>
+
+					<h3>Arbustos</h3>
+				</div>
+				<div class="card-category">
+					<div class="img-category">
+						<img src="assets/img/category-4.png" alt="Category 4" />
+					</div>
+
+					<h3>Flores</h3>
+				</div>
+			</div>
+		</section>
 
 <!-- Contenido start-->
+<section class="section-best-products container">
+    <h2>Mejores Productos</h2>
+    <div class="container-cards-products">
+        <?php
+        $conection = mysqli_connect("localhost", "root", "", "club_frijol");
+        $sql = "SELECT * FROM productos WHERE categoria = 3";
+        $resultado = mysqli_query($conection, $sql);
 
-
+        if (mysqli_num_rows($resultado) > 0) {
+            while ($producto = mysqli_fetch_assoc($resultado)) {
+                echo "<div class='card-product'>";
+                echo "<div class='img-product'>";
+                echo "<img src='assets/img/" . $producto['imagen'] . "' alt='" . $producto['nombre'] . "' />";
+                echo "</div>";
+                echo "<div class='header-card'>";
+                echo "<span><h3>" . $producto['nombre'] . "</h3><p class='price'>" . $producto['precio'] . "bs</p></span>";
+                echo "<button><i class='fa-solid fa-heart'></i></button>";
+                echo "</div>";
+                echo "<p class='description'>" . $producto['descripcion'] . "</p>";
+                echo "<button class='btn-add-cart'>Añadir al carrito</button>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No hay productos disponibles en esta categoría.</p>";
+        }
+        ?>
+    </div>
+</section>
 
 
 <!-- Contenido end -->
@@ -91,7 +149,7 @@
         <footer>
 			<div class="section-footer container">
 				<div class="footer-section-logo">
-					<img src="img/logo.png" alt="Logo" class="img-logo" />
+					<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
 
 					<p>
 						Ofrecemos una amplia variedad de plantas de interior y

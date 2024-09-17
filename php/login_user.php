@@ -15,7 +15,7 @@
             echo '
                 <script>
                     alert("Bienvenido");
-                    window.location = "registro.php";
+                    window.location = "../registro.php";
                 </script>
             ';
             exit;
@@ -24,7 +24,7 @@
             echo '
                 <script>
                     alert("Usuario o contraseña incorrectos");
-                    window.location = "registro.php";
+                    window.location = "../registro.php";
                 </script>
             ';
         }
@@ -33,4 +33,17 @@
 
 ?>
 
+<!-- Validar -->
+<?php 
+
+session_start();
+error_reporting();
+
+$validar=$_SESSION['nombre'];
+
+if($validar==null || $validar='');
+    header("Location: ../registro");
+    die();
+
+?>
 
