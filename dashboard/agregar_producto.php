@@ -121,4 +121,3 @@ include '../php/conection-be.php';
 </body>
 
 </html>
->>>>>>> cb811bb (25-9-2024 terminado...casi)

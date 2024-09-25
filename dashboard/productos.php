@@ -9,12 +9,6 @@ include '../php/conection-be.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
-    <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/estilosadmi.css">
-</head>
-=======
     <title>Club del Frijol</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
@@ -51,7 +45,6 @@ include '../php/conection-be.php';
         }
     </script>
 
->>>>>>> cb811bb (25-9-2024 terminado...casi)
 
 <body>
     <!-- =============== Navigation ================ -->
@@ -125,45 +118,6 @@ include '../php/conection-be.php';
                     </button>
                 </div>
             </div>
-<<<<<<< HEAD
-<!-- New -->
-<div class="add-product-container">
-    <h2>Añadir Nuevo Producto</h2>
-    <form action="agregar_producto.php" method="POST" enctype="multipart/form-data">
-        <div class="input-group">
-            <label for="nombre">Nombre del Producto:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <div class="input-group">
-            <label for="precio">Precio (Bs):</label>
-            <input type="number" id="precio" name="precio" required>
-        </div>
-        <div class="input-group">
-            <label for="categoria">Categoría:</label>
-            <select id="categoria" name="categoria" required>
-                <option value="1">Plantas de Interior</option>
-                <option value="2">Plantas de Exterior</option>
-                <option value="3">Flores</option>
-                <option value="4">Arbustos</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-        </div>
-        <div class="input-group">
-            <label for="imagen">Imagen del Producto:</label>
-            <input type="file" id="imagen" name="imagen" required>
-        </div>
-        <button type="submit" class="btn-add-product">Añadir Producto</button>
-    </form>
-</div>
-
-
-
-<!-- End new -->
-        </div>
-=======
             <div class="details">
                 <div class="recentOrders">
                     <h1>Lista de productos</h1>
@@ -219,7 +173,6 @@ include '../php/conection-be.php';
                     </table>
                 </div>
             </div>
->>>>>>> cb811bb (25-9-2024 terminado...casi)
         </div>
     </div>
     <!-- =========== Scripts =========  -->

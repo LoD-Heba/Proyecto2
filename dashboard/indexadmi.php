@@ -144,9 +144,7 @@
                 </div>
             </div>
 
-
-                <!-- ================= New Customers ================ -->
-                <!-- <div class="recentCustomers">
+                 <div class="recentCustomers">
                     <div class="cardHeader">
                         <h2>Usuarios</h2>
                     </div>
@@ -224,7 +222,7 @@
                             </td>
                         </tr>
                     </table>
-                </div> -->
+                </div> 
             </div>
         </div>
     </div>

@@ -15,8 +15,6 @@ include '../php/conection-be.php';
     <title>Club del Frijol</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/estilosadmi.css">
-<<<<<<< HEAD
-=======
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -46,7 +44,6 @@ include '../php/conection-be.php';
         }
     </script>
 
->>>>>>> cb811bb (25-9-2024 terminado...casi)
 </head>
 
 <body>
@@ -121,19 +118,6 @@ include '../php/conection-be.php';
                     </button>
                 </div>
             </div>
-<<<<<<< HEAD
-<!-- Contenido start -->
-
-
-    </div>
-</div>
-    <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
-
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-=======
 
             <!-- Comentarios start -->
             <div class="details">
@@ -200,7 +184,6 @@ include '../php/conection-be.php';
         <script src="assets/js/menu_ham.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
->>>>>>> cb811bb (25-9-2024 terminado...casi)
 </body>
 
 </html>

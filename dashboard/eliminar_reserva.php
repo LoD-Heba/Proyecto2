@@ -22,6 +22,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo '<script>alert("Solicitud inválida."); window.location.href = "reservas.php";</script>';
 }
 
-// Cerrar conexión
 mysqli_close($conection);
 ?>

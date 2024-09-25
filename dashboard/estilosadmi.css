@@ -304,9 +304,6 @@ body {
 
 /* EDITOR DE USUARIOS */
 
-
-
-/* 
 .recentCustomers {
   position: relative;
   display: grid;
@@ -349,7 +346,7 @@ body {
 }
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
-} */
+} 
 
 
 /* ====================== Responsive Design ========================== */

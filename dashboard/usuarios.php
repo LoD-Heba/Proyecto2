@@ -34,10 +34,6 @@ include '../php/conection-be.php';
             });
         }
     </script>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="assets/css/estilosadmi.css">
-=======
->>>>>>> cb811bb (25-9-2024 terminado...casi)
 </head>
 
 <body>
@@ -192,58 +188,6 @@ include '../php/conection-be.php';
                             </tr>
                         </thead>
 
-<<<<<<< HEAD
-// Consulta para obtener los registros de los usuarios
-$sql = "SELECT id, nombre, correo, usuario, rol, clave FROM registro_usuario";
-$resultado = mysqli_query($conection, $sql);
-
-?>
-        <div class="details">
-            <div class="recentOrders">
-            <!-- Fin conexion -->
-                <h1>Lista de usuarios</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Usuario</th>
-                    <th>Rol</th>
-                    <th>Editor</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-                $conection=mysqli_connect("localhost","root","","club_frijol");               
-                $sql="SELECT registro_usuario.id, registro_usuario.nombre, registro_usuario.correo, registro_usuario.usuario, registro_usuario.clave, permisos.rol FROM registro_usuario
-                LEFT JOIN permisos ON registro_usuario.rol = permisos.id";
-                $resultado = mysqli_query($conection, $sql);
-                // Verificar si hay resultados
-                if (mysqli_num_rows($resultado) > 0) {
-                    
-                    while ($fila = mysqli_fetch_assoc($resultado)) {
-                        echo "<tr>";
-                        echo "<td>" . $fila['id'] . "</td>";
-                        echo "<td>" . $fila['nombre'] . "</td>";
-                        echo "<td>" . $fila['correo'] . "</td>";
-                        echo "<td>" . $fila['usuario'] . "</td>";
-                        echo "<td>" . $fila['rol']  . "</td>";
-                        echo "<td>
-                                <a class='myButton1' href='editar.php?id=" . $fila['id'] . "'>Editar</a> -
-                               
-                                <a class='myButton2' href='eliminar.php?id=".$fila['id']."' onclick='return confirmar ()'>Eliminar</a>";
-                                
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='6'>No hay usuarios registrados</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-=======
                         <tbody>
                             <?php
                             $sql = "SELECT registro_usuario.id, registro_usuario.nombre, registro_usuario.correo, registro_usuario.usuario, permisos.rol FROM registro_usuario
@@ -271,7 +215,6 @@ $resultado = mysqli_query($conection, $sql);
                     </table>
 
                 </div>
->>>>>>> cb811bb (25-9-2024 terminado...casi)
             </div>
         </div>
     </div>

@@ -5,44 +5,6 @@ session_start();
 <!DOCTYPE html>
 <html lang="es">
 
-<<<<<<< HEAD
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Club del Frijol</title>
-		<link rel="icon" href="img/ico.png" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="assets/css/styles.css" />
-	</head>
-
-	<body>
-        <!-- Navbar start-->
-		<header>
-			<div class="container section-logo">
-				<button class="menu-toggle">Cerrar</button>
-				<a href="index.php">
-				<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
-				</a>
-				<nav class="nav-list">
-					<a href="dashboard/indexadmi.php">Admin</a>
-					<a href="index.php">Inicio</a>
-					<a href="tienda.php">Flores</a>
-					<a href="#">Plantas interior</a>
-					<a href="#">Plantas exterior</a>
-					<a href="#">Arbustos</a>
-					<a href="#">contactos</a>
-				</nav>
-=======
 <head>
 	<meta charset="UTF-8" />
 	<meta
@@ -70,7 +32,6 @@ session_start();
 			<div class="menu-toggle">
 				<i class="fa-solid fa-bars"></i>
 			</div>
->>>>>>> cb811bb (25-9-2024 terminado...casi)
 
 			<nav class="nav-links">
 				<?php
@@ -166,60 +127,6 @@ session_start();
 					</a>
 				</div>
 			</div>
-<<<<<<< HEAD
-		</header>
-        <!-- Navbar end -->
-
-		<!-- REGISTRO -->
-
-		<main>
-
-            <div class="contenedor__todo">
-                <div class="caja__trasera">
-                    <div class="caja__trasera-login">
-                        <h3>¿Ya tienes una cuenta?</h3>
-                        <p>Inicia sesión para entrar en la página</p>
-                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
-                    </div>
-                    <div class="caja__trasera-register">
-                        <h3>¿Aún no tienes una cuenta?</h3>
-                        <p>Regístrate para que puedas iniciar sesión</p>
-                        <button id="btn__registrarse">Regístrarse</button>
-                    </div>
-                </div>
-
-                <!--Formulario de Login y registro-->
-                <div class="contenedor__login-register">
-                    <!--Login-->
-                    <form action="php/login_user.php" class="formulario__login" method="POST" >
-                        <h2>Iniciar Sesión</h2>
-                        <input type="text" placeholder="Correo Electronico" name="correo" required>
-                        <input type="password" placeholder="Contraseña" name required>
-                        <button>Entrar</button>
-                    </form>
-
-                    <!--Register-->
-                    <form action="php/user_register.php" method="POST" class="formulario__register"> 
-                        <h2>Regístrarse</h2>
-                        <input type="text" placeholder="Nombre completo" name="nombre" required>
-                        <input type="text" placeholder="Correo Electronico" name="correo" required>
-                        <input type="text" placeholder="Usuario" name="usuario" required>
-                        <input type="password" placeholder="Contraseña" name="password" required>
-                        <button>Regístrarse</button>
-                    </form>
-                </div>
-            </div>
-
-        </main>
-
-
-
-        <footer>
-			<div class="section-footer container">
-				<div class="footer-section-logo">
-					<img src="assets/img/logo.png" alt="Logo" class="img-logo" />
-
-=======
 			<div class="footer-links">
 				<div class="footer-column">
 					<h4 class="footer-column-title">Compañía</h4>
@@ -243,7 +150,6 @@ session_start();
 					<h4 class="footer-column-title">
 						Suscríbete a nuestros Emails
 					</h4>
->>>>>>> cb811bb (25-9-2024 terminado...casi)
 					<p>
 						Disfruta de un 15% de descuento en tu primer pedido
 						cuando te suscribas a nuestro boletín informativo
