@@ -1,49 +1,39 @@
-<?php 
-    session_start();
-    include 'conection-be.php';
-    $correo = $_POST['correo'];
-    $clave = $_POST['clave'];
-    $_SESSION['correo'] = $correo;
 
-    $conection=mysqli_connect("localhost", "root", "", "club_frijol");
-    $consulta= "SELECT * FROM registro_usuario WHERE correo='$correo' and clave='$clave'";
-    $resultado=mysqli_query($conection,$consulta);
-    $filas=mysqli_num_rows($resultado);
-
-        if(mysqli_num_rows($resultado) > 0){
-            
-            echo '
-                <script>
-                    alert("Bienvenido");
-                    window.location = "../registro.php";
-                </script>
-            ';
-            exit;
-        }
-        else {
-            echo '
-                <script>
-                    alert("Usuario o contraseña incorrectos");
-                    window.location = "../registro.php";
-                </script>
-            ';
-        }
-        
-
-
-?>
-
-<!-- Validar -->
-<?php 
-
+<?php
 session_start();
-error_reporting();
+include 'conection-be.php';
 
-$validar=$_SESSION['nombre'];
+$correo = $_POST['correo'];
+$clave = $_POST['clave'];
 
-if($validar==null || $validar='');
-    header("Location: ../registro");
-    die();
+// Consulta para autenticar al usuario
+$login = mysqli_query($conection, "SELECT * FROM registro_usuario WHERE (correo='$correo') AND clave='$clave'");
 
+if (mysqli_num_rows($login) > 0) {
+    $row = mysqli_fetch_assoc($login);
+
+    // Guardar datos del usuario en la sesión
+    $_SESSION['usuario_id'] = $row['id'];
+    $_SESSION['usuario'] = $row['usuario'];
+    $_SESSION['nombre'] = $row['nombre'];
+    $_SESSION['correo'] = $row['correo'];
+    $_SESSION['foto_perfil'] = $row['foto_perfil'];
+    $_SESSION['rol'] = $row['rol'];
+
+    echo '
+        <script>
+            alert("Inicio de sesión exitoso");
+            window.location = "../index.php";
+        </script>
+    ';
+} else {
+    echo '
+        <script>
+            alert("Usuario o contraseña incorrectos");
+            window.location = "../registro.php";
+        </script>
+    ';
+}
+
+mysqli_close($conection);
 ?>
-

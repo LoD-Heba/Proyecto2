@@ -1,17 +1,31 @@
 <?php
-// Conexión a la base de datos
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
 $conection = mysqli_connect("localhost", "root", "", "club_frijol");
 
-// Obtener el ID del usuario a eliminar
-$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']);
 
-// Eliminar el registro del usuario
-$sql = "DELETE FROM registro_usuario WHERE id = $id";
+    // Eliminar las reservas relacionadas
+    $sql_reservas = "DELETE FROM reservas WHERE producto_id = $id";
+    mysqli_query($conection, $sql_reservas); 
 
-if (mysqli_query($conection, $sql)) {
-    echo "Registro eliminado correctamente";
-    header("Location: usuarios.php");
+    $sql = "DELETE FROM productos WHERE id = $id";
+
+    if (mysqli_query($conection, $sql)) {
+        
+        echo '<script>window.location.href = "productos.php";</script>';
+    } else {
+        echo '<script>window.location.href = "productos.php";</script>';
+    }
 } else {
-    echo "Error: " . mysqli_error($conection);
+    echo '<script>window.location.href = "productos.php";</script>';
 }
+
+mysqli_close($conection);
 ?>

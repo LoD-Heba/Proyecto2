@@ -1,7 +1,6 @@
 /* =========== Google Fonts ============ */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
-/* =============== Globals ============== */
 * {
   font-family: "Ubuntu", sans-serif;
   margin: 0;
@@ -39,6 +38,7 @@ body {
   transition: 0.5s;
   overflow: hidden;
 }
+
 .navigation.active {
   width: 80px;
 }
@@ -48,6 +48,16 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.img-logo {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  background-color: #d0e6d0;
+  border-radius: 50%;
 }
 
 .navigation ul li {
@@ -74,32 +84,21 @@ body {
   text-decoration: none;
   color: var(--white);
 }
+
+.navigation ul li {
+  list-style: none;
+  position: relative;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
 .navigation ul li:hover a,
 .navigation ul li.hovered a {
   color: var(--blue);
 }
-
-.navigation ul li a .icon {
-  /* position: relative;
-  display: block; */
-  min-width: 60px;
-  height: 60px;
-  line-height: 75px;
-  text-align: center;
-}
-.navigation ul li a .icon ion-icon {
-  font-size: 1.75rem;
-}
-
-.navigation ul li a .title {
-  /* position: relative;
-  display: block; */
-  padding: 0 10px;
-  height: 60px;
-  line-height: 60px;
-  text-align: start;
-  white-space: nowrap;
-} 
 
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
@@ -114,19 +113,25 @@ body {
   box-shadow: 35px 35px 0 10px var(--white);
   pointer-events: none;
 }
-.navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -50px;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: 35px -35px 0 10px var(--white);
-  pointer-events: none;
-} 
+
+.navigation ul li a .icon {
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
 
 /* ===================== Main ===================== */
 .main {
@@ -137,6 +142,7 @@ body {
   background: var(--white);
   transition: 0.5s;
 }
+
 .main.active {
   width: calc(100% - 80px);
   left: 80px;
@@ -144,15 +150,13 @@ body {
 
 .topbar {
   width: 100%;
-  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 30px 10px;
 }
 
 .toggle {
-  /* position: relative; */
   width: 60px;
   height: 60px;
   display: flex;
@@ -160,35 +164,6 @@ body {
   align-items: center;
   font-size: 2.5rem;
   cursor: pointer;
-}
-
-.search {
-  position: relative;
-  width: 400px;
-  margin: 0 10px;
-}
-
-.search label {
-  position: relative;
-  width: 100%;
-}
-
-.search label input {
-  width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  font-size: 18px;
-  outline: none;
-  border: 1px solid var(--black2);
-}
-
-.search label ion-icon {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-size: 1.2rem;
 }
 
 .user {
@@ -215,7 +190,7 @@ body {
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
 
@@ -229,9 +204,11 @@ body {
   cursor: pointer;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
+
 .cardBox .card:hover {
   background: var(--blue);
 }
+
 .cardBox .card .numbers {
   position: relative;
   font-weight: 500;
@@ -260,16 +237,12 @@ body {
   position: relative;
   width: 100%;
   padding: 20px;
-  background-color: #f0f8f0; /* Fondo claro, tono de verde suave */
+  background-color: #f0f8f0;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* margin-top: 10px; */
 }
 
 .details .recentOrders {
-  /* position: relative;
-  display: grid;
-  min-height: 500px; */
   background: var(--white);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
@@ -278,106 +251,161 @@ body {
 
 .recentOrders h1 {
   font-size: 1.8rem;
-  color: #3b6e58; /* Verde oscuro */
+  text-shadow: 3px 5px 2px #474747, 2px 2px 2px rgba(60,206,114,0);
   margin-bottom: 15px;
   text-align: center;
   font-weight: 600;
 }
 
+/* Tabla */
+
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  font-size: 1rem;
-}
+ }
 
-thead {
-  background-color: #3b6e58; /* Verde oscuro */
-  color: #ffffff;
-}
-
-th,
-td {
-  padding: 10px 15px;
+th, td {
+  padding: 10px;
+  border: 1px solid #030303;
   text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f0f8f0; /* Fondo alternado verde claro */
-}
-
-tbody tr:hover {
-  background-color: #d0e6d0; /* Fondo verde claro al pasar el mouse */
+  vertical-align: top;
 }
 
 th {
+  background-color: #30addf;
   font-weight: bold;
-  text-transform: uppercase;
 }
+tr {
+  background-color: #b7f0a9;
+}
+th:nth-child(1), td:nth-child(1) { width: 5%; }  /* ID */
+th:nth-child(2), td:nth-child(2) { width: 15%; } /* Nombre */
+th:nth-child(3), td:nth-child(3) { width: 10%; } /* Precio */
+th:nth-child(4), td:nth-child(4) { width: 10%; } /* Categoría */
+th:nth-child(5), td:nth-child(5) { width: 30%; } /* Descripción */
+th:nth-child(6), td:nth-child(6) { width: 10%; } /* Fecha */
+th:nth-child(7), td:nth-child(7) { width: 10%; } /* Imagen */
+th:nth-child(8), td:nth-child(8) { width: 10%; } /* Editor */
+
+td:nth-child(7) img {
+  max-width: 100px;
+  height: auto;
+}
+
+@media screen and (max-width: 480px) {
+  table, th, td {
+      font-size: 12px;
+  }
+  
+  td:nth-child(5) { 
+      white-space: normal; 
+      max-width: 100px;
+  }
+}
+/* Tabla end */
 
 /* BOTON */
 .myButton1 {
-	box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
+  box-shadow: inset 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
+  margin: 2px;
 }
+
 .myButton1:hover {
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	background-color:#ffab23;
+  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  background-color: #ffab23;
 }
+
 .myButton1:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
+
 .myButton2 {
-	box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:linear-gradient(to bottom, #db1414 5%, #ffcccc 100%);
-	background-color:#db1414;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
+  box-shadow: inset 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #db1414 5%, #ffcccc 100%);
+  background-color: #db1414;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
+  margin: 2px;
 }
+
 .myButton2:hover {
-	background:linear-gradient(to bottom, #ffcccc 5%, #db1414 100%);
-	background-color:#ffcccc;
+  background: linear-gradient(to bottom, #ffcccc 5%, #db1414 100%);
+  background-color: #ffcccc;
 }
+
 .myButton2:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
+
+.myButton3 {
+  box-shadow: inset 0px 1px 0px 0px #a4e271;
+  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+  background-color: #89c403;
+  border-radius: 6px;
+  border: 1px solid #74b807;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528009;
+  margin-bottom: 30px;
+}
+
+.myButton3:hover {
+  background: linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+  background-color: #77a809;
+}
+
+.myButton3:active {
+  position: relative;
+  top: 1px;
+}
+
 /* Fin Boton */
-        
+
 
 /* End form usuarios */
+
+
 .details .cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
+
 .cardHeader h2 {
   font-weight: 600;
   color: var(--blue);
 }
+
 .cardHeader .btn {
   position: relative;
   padding: 5px 10px;
@@ -386,6 +414,8 @@ th {
   color: var(--white);
   border-radius: 6px;
 }
+
+/* Agregar productos */
 
 .add-product-container {
   max-width: 600px;
@@ -435,14 +465,11 @@ th {
 .add-product-container .btn-add-product {
   display: block;
   width: 100%;
-  background-color: #3b6e58;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+}
+
+.add-product-container.button-agre {
+  display: flex;
+  flex-direction: row;
 }
 
 .add-product-container .btn-add-product:hover {
@@ -457,16 +484,24 @@ th {
   box-shadow: 0 0 5px rgba(59, 110, 88, 0.5);
 }
 
-/* Editar */
+.main .container-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
 
+.main .container-actions button {
+  margin-top: 10px;
+  margin-right: 21px;
+}
 
+.main.section-features {
+  display: grid;
+  grid-template-rows: repeat(5, 70px);
+  grid-template-columns: repeat(1, 1fr);
+}
 
-/* Fin editar */
-
-
-
-
-
+/* Agregar producto fin */
 
 
 /* ====================== Responsive Design ========================== */
@@ -474,17 +509,21 @@ th {
   .navigation {
     left: -300px;
   }
+
   .navigation.active {
-    width: 300px;
+    width: 200px;
     left: 0;
   }
+
   .main {
     width: 100%;
     left: 0;
   }
+
   .main.active {
-    left: 300px;
+    left: 200px;
   }
+
   .cardBox {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -494,9 +533,13 @@ th {
   .details {
     grid-template-columns: 1fr;
   }
+  .ionicon {
+    display: none;
+  }
   .recentOrders {
     overflow-x: auto;
   }
+
   .status.inProgress {
     white-space: nowrap;
   }
@@ -506,28 +549,71 @@ th {
   .cardBox {
     grid-template-columns: repeat(1, 1fr);
   }
+
   .cardHeader h2 {
     font-size: 20px;
   }
+
   .user {
     min-width: 40px;
   }
+
   .navigation {
     width: 100%;
     left: -100%;
     z-index: 1000;
   }
+
   .navigation.active {
     width: 100%;
     left: 0;
   }
+
   .toggle {
     z-index: 10001;
   }
+
   .main.active .toggle {
     color: #fff;
     position: fixed;
     right: 0;
     left: initial;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .responsive-table thead {
+      display: none;
+  }
+
+  .responsive-table tr {
+      display: block;
+      margin-bottom: 15px;
+  }
+
+  .responsive-table td {
+      display: block;
+      text-align: right;
+      font-size: 14px;
+      border: none;
+      position: relative;
+      padding-left: 50%;
+  }
+
+  .responsive-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 10px;
+      font-weight: bold;
+      text-align: left;
+  }
+
+  /* Ajustar botones */
+  .responsive-table a {
+      display: inline-block;
+      margin: 5px 0;
   }
 }

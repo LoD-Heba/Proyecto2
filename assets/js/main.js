@@ -1,21 +1,85 @@
-// add hovered class to selected list item
-let list = document.querySelectorAll(".navigation li");
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const body = document.querySelector('body');
 
-function activeLink() {
-  list.forEach((item) => {
-    item.classList.remove("hovered");
-  });
-  this.classList.add("hovered");
+// Función para abrir/cerrar el menú
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('nav-active');
+});
+
+// Función para cerrar el menu cuando se hace clic fuera del menu
+document.addEventListener('click', (e) => {
+  if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+    navLinks.classList.remove('nav-active');
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navLinks.classList.remove('nav-active');
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+	link.addEventListener('click', function(e) {
+
+		const duration = 600; 
+		const startPosition = window.pageYOffset;
+		const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+		const distance = targetPosition - startPosition;
+		let startTime = null;
+
+		function animationScroll(currentTime) {
+			if (startTime === null) startTime = currentTime;
+			const timeElapsed = currentTime - startTime;
+			const run = ease(timeElapsed, startPosition, distance, duration);
+			window.scrollTo(0, run);
+			if (timeElapsed < duration) requestAnimationFrame(animationScroll);
+		}
+
+		function ease(t, b, c, d) {
+			t /= d / 2;
+			if (t < 1) return c / 2 * t * t + b;
+			t--;
+			return -c / 2 * (t * (t - 2) - 1) + b;
+		}
+
+		requestAnimationFrame(animationScroll);
+	});
+});
+
+// Botón para subir al inicio
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', () => {
+	if (window.scrollY > 300) {
+		scrollToTopBtn.style.display = 'flex'; 
+	} else {
+		scrollToTopBtn.style.display = 'none'; 
+	}
+});
+
+// Desplazarse suavemente 
+scrollToTopBtn.addEventListener('click', () => {
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth'
+	});
+});
+
+//Mostrar vista previa de imagen
+function previewImage(event) {
+	const label = document.getElementById('file-label');
+	label.style.display = 'none';
+	const img = document.getElementById('preview');
+	img.src = URL.createObjectURL(event.target.files[0]);
+	img.style.display = 'block';
+	
 }
 
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
-// Menu Toggle
-let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
-
-toggle.onclick = function () {
-  navigation.classList.toggle("active");
-  main.classList.toggle("active");
-};
+function toggleButton() {
+	const button = document.getElementById('submit-button');
+	button.style.display = 'block'; 
+}
+function confirmar(event) {
+    return confirm("¿Estás seguro de que deseas eliminar este producto?");
+}
