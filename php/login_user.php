@@ -22,7 +22,6 @@ if (mysqli_num_rows($login) > 0) {
 
     echo '
         <script>
-            alert("Inicio de sesión exitoso");
             window.location = "../index.php";
         </script>
     ';

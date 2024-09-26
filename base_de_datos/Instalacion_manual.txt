@@ -1,0 +1,78 @@
+NOTA: Las tablas deben crearse por orden, sin que causen conflictos en las relaciones de id.
+Ejemplo: Si comentarios tiene una clave foranea con Usuarios-id, este no podrá crearse a si Usuarios-id no existe. 
+
+
+Paso 1:
+
+CREATE TABLE `registro_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `clave` varchar(50) NOT NULL,
+  `foto_perfil` varchar(255) NOT NULL,
+  `rol` int(20) NOT NULL,
+  `rol_id` int(11) NOT NULL DEFAULT 2,
+  PRIMARY KEY (`id`),
+  KEY `rol` (`rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+Paso 2:
+
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_categoria` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+Paso 3: 
+
+CREATE TABLE `productos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `precio` decimal(10,2) DEFAULT NULL,
+  `categoria` int(11) DEFAULT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `descripcion` text DEFAULT NULL,
+  `imagen` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `categoria` (`categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+Paso 4:
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comentario` text NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
+  `usuario_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_usuario` (`usuario_id`),
+  CONSTRAINT `fk_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `registro_usuario` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+Paso 5:
+
+CREATE TABLE `permisos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rol` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+Paso 6:
+
+CREATE TABLE `reservas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `producto_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `dias_reserva` int(11) NOT NULL,
+  `fecha_reserva` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `producto_id` (`producto_id`),
+  KEY `usuario_id` (`usuario_id`),
+  CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`),
+  CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `registro_usuario` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
