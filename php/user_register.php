@@ -5,7 +5,7 @@ $nombre = $_POST['nombre'];
 $correo = $_POST['correo'];
 $usuario = $_POST['usuario'];
 $clave = $_POST['clave'];
-$foto_perfil = "default-avatar.png";
+$foto_perfil = "uploads/default-avatar.png";
 
 // Verificar si el correo ya existe
 $verificarCorreo = mysqli_query($conection, "SELECT * FROM registro_usuario WHERE correo='$correo'");

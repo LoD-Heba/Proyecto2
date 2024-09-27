@@ -9,16 +9,19 @@ menuToggle.addEventListener('click', () => {
 
 // Función para cerrar el menu cuando se hace clic fuera del menu
 document.addEventListener('click', (e) => {
-  if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-    navLinks.classList.remove('nav-active');
-  }
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('nav-active');
+    }
 });
+
 
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     navLinks.classList.remove('nav-active');
   }
 });
+
+//deslizamiento suave de url
 document.querySelectorAll('.nav-links a').forEach(link => {
 	link.addEventListener('click', function(e) {
 
@@ -47,6 +50,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 	});
 });
 
+
 // Botón para subir al inicio
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
@@ -66,20 +70,84 @@ scrollToTopBtn.addEventListener('click', () => {
 	});
 });
 
-//Mostrar vista previa de imagen
+
+
+//PERFIL---PREV ---SWEETALERT
+
 function previewImage(event) {
 	const label = document.getElementById('file-label');
 	label.style.display = 'none';
+
 	const img = document.getElementById('preview');
 	img.src = URL.createObjectURL(event.target.files[0]);
 	img.style.display = 'block';
-	
+	toggleButton();
 }
 
+//botones de aceptar o cancelar cambio de foto
 function toggleButton() {
-	const button = document.getElementById('submit-button');
-	button.style.display = 'block'; 
+	const submitButton = document.getElementById('submit-button');
+	const cancelButton = document.getElementById('cancel-button');
+	submitButton.style.display = 'block';
+	cancelButton.style.display = 'block';
 }
-function confirmar(event) {
-    return confirm("¿Estás seguro de que deseas eliminar este producto?");
+
+function cancelChange() {
+	const label = document.getElementById('file-label');
+	const img = document.getElementById('preview');
+	const fileInput = document.getElementById('file-input');
+	const submitButton = document.getElementById('submit-button');
+	const cancelButton = document.getElementById('cancel-button');
+
+	img.style.display = 'none';
+	label.style.display = 'block';
+	fileInput.value = '';
+	submitButton.style.display = 'none';
+	cancelButton.style.display = 'none';
+}
+
+
+function confirmCancel(button) {
+	Swal.fire({
+		title: '¿Estás seguro?',
+		text: "No podrás revertir esta acción",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Sí, cancelar',
+		cancelButtonText: 'No, mantener'
+	}).then((result) => {
+		if (result.isConfirmed) {
+			// Enviar el formulario si se confirma
+			button.closest('form').submit();
+		}
+	});
+}
+// Mensaje de éxito
+function alertaExito(button) {
+	Swal.fire({
+		position: "top-end",
+		icon: "success",
+		title: "Cambios realizados",
+		showConfirmButton: false,
+		timer: 2500
+	  }).then((result) => {
+		if (result.isConfirmed) {
+			// Enviar el formulario si se confirma
+			button.closest('form').submit();
+		}
+	});
+}
+function confirmLogout(button) {
+    Swal.fire({
+        title: '¿Cerrar sesión?',
+        showCancelButton: true,
+        confirmButtonText: 'Cerrar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            button.closest('form').submit();
+        }
+    });
 }

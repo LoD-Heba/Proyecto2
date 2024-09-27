@@ -20,6 +20,7 @@ session_start();
 		referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="assets/css/styles.css" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <!-- anuncios start-->
@@ -67,6 +68,9 @@ session_start();
 						<?php endif; ?>
 					</button>
 				</div>
+				<form class="cerrar-sesion" action="php/logout.php" method="POST" onsubmit="return false;">
+                        <button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
+                    </form>
 			</nav>
 		</div>
 	</header>

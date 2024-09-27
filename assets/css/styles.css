@@ -935,6 +935,21 @@ main {
 }
 /* Boton retorno end*/
 
+/* CERRAR SESION */
+.cerrar-sesion button{
+	background-color: #12afdf;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    width: 100%;
+}
+.cerrar-sesion button:hover {
+    background-color: #083b72;
+}
 /* MEDIAQUERY */
 @media (max-width: 768px) {
 	.container-img-hero {

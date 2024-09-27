@@ -115,17 +115,6 @@ session_start();
 					bienestar. Nuestra misión es conectar a las personas con
 					la naturaleza.
 				</p>
-				<div class="social-links">
-					<a href="#" class="btn-social-link">
-						<i class="fa-brands fa-facebook"></i>
-					</a>
-					<a href="#" class="btn-social-link">
-						<i class="fa-brands fa-instagram"></i>
-					</a>
-					<a href="#" class="btn-social-link">
-						<i class="fa-brands fa-x-twitter"></i>
-					</a>
-				</div>
 			</div>
 			<div class="footer-links">
 				<div class="footer-column">
@@ -161,9 +150,6 @@ session_start();
 	</footer>
 	<script src="assets/js/login.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<?php
-	mysqli_close($conection);
-	?>
 </body>
 
 </html>

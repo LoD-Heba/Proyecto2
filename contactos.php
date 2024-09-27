@@ -85,26 +85,25 @@ session_start();
             <div class="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
-
-            <nav class="nav-links">
-                <?php
-                if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-                    echo '<a href="dashboard/usuarios.php">Admi</a>';
-                }
-                ?>
-                <a href="index.php">Inicio</a>
-                <a href="#tienda">Tienda</a>
-                <a href="contactos.php">Contacto</a>
-                <div class="container-actions">
-                    <button onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? 'php/perfil.php' : 'registro.php'; ?>';">
-                        <?php if (isset($_SESSION['correo'])): ?>
-                            <img src="<?php echo 'php/' . $_SESSION['foto_perfil']; ?>" alt="Foto de perfil" style="width: 90px; height: 90px; border-radius: 50%;">
-                        <?php else: ?>
-                            <i class="fa-regular fa-user"></i>
-                        <?php endif; ?>
-                    </button>
-                </div>
-            </nav>
+			<nav class="nav-links">
+				<?php
+				if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+					echo '<a href="dashboard/usuarios.php">Admi</a>';
+				}
+				?>
+				<a href="index.php">Inicio</a>
+				<a href="#tienda">Tienda</a>
+				<a href="contactos.php">Contacto</a>
+				<div class="container-actions">
+					<button onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? 'php/perfil.php' : 'registro.php'; ?>';">
+						<?php if (isset($_SESSION['correo'])): ?>
+							<img src="<?php echo 'php/' . $_SESSION['foto_perfil']; ?>" alt="Foto de perfil" style="width: 90px; height: 90px; border-radius: 50%;">
+						<?php else: ?>
+							<i class="fa-regular fa-user"></i>
+						<?php endif; ?>
+					</button>
+				</div>
+			</nav>
 
         </div>
     </header>
@@ -149,7 +148,7 @@ session_start();
             <div class="contact-info">
                 <h2>Información de Contacto</h2>
                 <p><strong>Dirección:</strong> Sacaba</p>
-                <p><strong>Teléfono:</strong> +591 ########/p>
+                <p><strong>Teléfono:</strong> +591 ########</p>
             </div>
         </div>
     </section>

@@ -22,11 +22,6 @@ body {
   overflow-x: hidden;
 }
 
-.container {
-  position: relative;
-  width: 100%;
-}
-
 /* =============== Navigation ================ */
 .navigation {
   position: fixed;
@@ -83,6 +78,7 @@ body {
   display: flex;
   text-decoration: none;
   color: var(--white);
+  margin: 5px;
 }
 
 .navigation ul li {
@@ -151,8 +147,8 @@ body {
 .topbar {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: end;
+  align-items: end;
   padding: 30px 10px;
 }
 
@@ -292,7 +288,7 @@ td:nth-child(7) img {
   height: auto;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   table, th, td {
       font-size: 12px;
   }
@@ -505,16 +501,16 @@ td:nth-child(7) img {
 
 
 /* ====================== Responsive Design ========================== */
-@media (max-width: 991px) {
-  .navigation {
-    left: -300px;
-  }
-
+@media (max-width: 768px) {
+ 
   .navigation.active {
     width: 200px;
     left: 0;
   }
-
+.navigation{
+  display: block;
+  
+}
   .main {
     width: 100%;
     left: 0;
@@ -529,7 +525,7 @@ td:nth-child(7) img {
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .details {
     grid-template-columns: 1fr;
   }
@@ -543,46 +539,32 @@ td:nth-child(7) img {
   .status.inProgress {
     white-space: nowrap;
   }
-}
-
-@media (max-width: 480px) {
-  .cardBox {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .cardHeader h2 {
-    font-size: 20px;
-  }
-
-  .user {
-    min-width: 40px;
-  }
-
-  .navigation {
-    width: 100%;
-    left: -100%;
-    z-index: 1000;
-  }
-
-  .navigation.active {
-    width: 100%;
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
     left: 0;
-  }
-
-  .toggle {
-    z-index: 10001;
-  }
-
-  .main.active .toggle {
-    color: #fff;
-    position: fixed;
-    right: 0;
-    left: initial;
-  }
-
+    width: 100%;
+    background-color: #333;
 }
 
-@media only screen and (max-width: 480px) {
+.nav-links ul {
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-active {
+    display: block;
+}
+
+.menu-toggle {
+    display: block;
+}
+} */
+
+/* 
+
+@media only screen and (max-width: 768px) {
   .responsive-table thead {
       display: none;
   }
@@ -612,8 +594,8 @@ td:nth-child(7) img {
   }
 
   /* Ajustar botones */
-  .responsive-table a {
+  /*.responsive-table a {
       display: inline-block;
       margin: 5px 0;
   }
-}
+} */

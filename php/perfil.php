@@ -17,12 +17,6 @@
             $usuario = $_SESSION['usuario'];
             mysqli_query($conection, "UPDATE registro_usuario SET foto_perfil='$ruta_foto' WHERE usuario='$usuario'");
             $_SESSION['foto_perfil'] = $ruta_foto; // Actualizar la sesión con la nueva foto
-            echo '
-                <script>
-                    alert("Foto de perfil actualizada con éxito");
-                    window.location = "perfil.php";
-                </script>
-            ';
         } else {
             echo '
                 <script>
@@ -43,12 +37,6 @@
 
         // Actualizar sesión con los nuevos datos
         $_SESSION['nombre'] = $nuevo_nombre;
-        echo '
-            <script>
-                alert("Datos actualizados con éxito");
-                window.location = "perfil.php";
-            </script>
-        ';
     }
 
     // Obtener los datos del usuario
@@ -70,48 +58,9 @@
         ';
     }
     ?>
-    <style>
-        h2 {
-            margin-top: 2rem;
-            font-size: 1.5rem;
-            color: #333;
-        }
 
-        .reservas-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
 
-        .reservas-list li {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .reservas-list li strong {
-            color: #555;
-        }
-
-        .btn-cancel {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 10px;
-        }
-
-        .btn-cancel:hover {
-            background-color: #c0392b;
-        }
-    </style>
-
+    <!-- HTML -->
     <!DOCTYPE html>
     <html lang="es">
 
@@ -130,32 +79,50 @@
                 img.style.display = 'block';
             }
         </script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body>
         <header>
             <div class="container section-logo">
-                <a href="index.php">
+                <a href="../index.php">
                     <img src="../assets/img/logoclub.png" alt="Logo" class="img-logo" />
                 </a>
                 <div class="menu-toggle">
                     <i class="fa-solid fa-bars"></i>
                 </div>
 
-                <nav class="nav-links">
+
+                <nav class="nav-links" id="nav-links">
+                    <?php
+                    if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+                        echo '<a href="../dashboard/usuarios.php">Admi</a>';
+                    }
+                    ?>
                     <a href="../index.php">Inicio</a>
                     <a href="../contactos">Contacto</a>
+
                     <div class="container-actions">
-                        <button onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? 'perfil.php' : 'registro.php'; ?>';">
+                        <button class="btn-perfil" onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? 'perfil.php' : 'registro.php'; ?>';">
                             <?php if (isset($_SESSION['correo'])): ?>
                                 <img src="<?php echo $_SESSION['foto_perfil']; ?>" alt="Foto de perfil" style="width: 90px; height: 90px; border-radius: 50%;">
                             <?php else: ?>
-                                <i class="fa-regular fa-user"></i>
+                                <img src="uploads/default-avatar.png" alt="foto por defecto">
                             <?php endif; ?>
                         </button>
-                    </div>
-                </nav>
 
+                    </div>
+                    <!-- Cerrar sesión -->
+                    <form class="cerrar-sesion" action="logout.php" method="POST" onsubmit="return false;">
+                        <button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
+                    </form>
+                </nav>
             </div>
         </header>
 
@@ -163,7 +130,7 @@
 
         <div class="container2">
             <h1>Bienvenido, <?php echo htmlspecialchars($nombre); ?></h1>
-            <img src="<?php echo htmlspecialchars($foto_perfil); ?>" alt="Foto de perfil" width="150">
+            <img src="<?php echo htmlspecialchars($foto_perfil); ?>" alt="Foto de perfil" style="width: 190px; height: 190px; border-radius: 50%;">
 
             <!-- Datos del usuario -->
             <p><strong>Correo:</strong> <?php echo htmlspecialchars($correo); ?></p>
@@ -171,15 +138,16 @@
             <form action="perfil.php" method="POST" enctype="multipart/form-data">
                 <input type="file" name="foto_perfil" accept="image/*" id="file-input" onchange="previewImage(event); toggleButton();" required style="display: none;">
                 <label for="file-input" class="file-label" id="file-label">Cambiar foto de perfil</label>
-                <img id="preview" src="" alt="Vista previa" width="150" style="display:none;">
-                <button type="submit" name="cambiar_foto" id="submit-button" style="display: none;">Aceptar</button>
+                <img id="preview" src="" alt="Vista previa" width="150" style="display:none; width: 190px; height: 190px; border-radius: 50%;">
+                <button type="submit" name="cambiar_foto" id="submit-button" style="display: none; margin-bottom: 10px;" onclick="alertaExito()">Aceptar</button>
+                <button type="button" id="cancel-button" style="display: none;" onclick="window.history.back()">Cancelar</button>
             </form>
 
             <!-- Formulario para editar nombre y correo -->
             <form action="perfil.php" method="POST">
                 <input type="text" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>" required>
                 <input type="email" name="correo" value="<?php echo htmlspecialchars($correo); ?>" required>
-                <button type="submit" name="editar_usuario">Actualizar Datos</button>
+                <button type="submit" name="editar_usuario" onclick="alertaExito()">Actualizar Datos</button>
             </form>
             <?php
 
@@ -204,9 +172,9 @@
                     echo "<strong>Cantidad:</strong> " . htmlspecialchars($reserva['cantidad']) . "<br>";
                     echo "<strong>Días de reserva:</strong> " . htmlspecialchars($reserva['dias_reserva']) . "<br>";
                     echo "<strong>Fecha de reserva:</strong> " . htmlspecialchars($reserva['fecha_reserva']) . "<br>";
-                    echo "<form action='cancelar_reserva.php' method='POST'>";
+                    echo "<form action='cancelar_reserva.php' method='POST' class='cancel-form'>";
                     echo "<input type='hidden' name='reserva_id' value='" . $reserva['id'] . "'>";
-                    echo "<button type='submit' class='btn-cancel'>Cancelar Reserva</button>";
+                    echo "<button type='button' class='btn-cancel' onclick='confirmCancel(this)'>Cancelar Reserva</button>";
                     echo "</form>";
                     echo "</li>";
                 }
@@ -216,33 +184,10 @@
             }
             ?>
 
-
-
-            <!-- Ocultar label -->
-            <script>
-                function previewImage(event) {
-                    const label = document.getElementById('file-label');
-                    label.style.display = 'none';
-                    const img = document.getElementById('preview');
-                    img.src = URL.createObjectURL(event.target.files[0]);
-                    img.style.display = 'block';
-
-                }
-
-                function toggleButton() {
-                    const button = document.getElementById('submit-button');
-                    button.style.display = 'block';
-                }
-            </script>
-            <!-- label -> aceptar -->
-
-            <!-- Cerrar sesión -->
-            <form action="logout.php" method="POST">
-                <button type="submit">Cerrar Sesión</button>
-            </form>
         </div>
         <!-- Contenido end -->
-        <script src="assets/js/main.js"></script>
+        <script src="../assets/js/main.js"></script>
+
     </body>
 
     </html>

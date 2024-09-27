@@ -10,9 +10,7 @@ include '../php/conection-be.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club del Frijol</title>
-
     <link rel="stylesheet" href="assets/css/estilosadmi.css">
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Script alert -->
     <script type="text/javascript">
@@ -40,64 +38,72 @@ include '../php/conection-be.php';
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
-            <ul>
-                <li>
-                    <a href="../index.php">
-                        <img src="../assets/img/logoclub.png" alt="Logo" class="img-logo" />
-                    </a>
-                </li>
-                <li>
-                    <a href="usuarios.php">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Usuarios</span>
-                    </a>
-                </li>
+            <div class="menu-toggle">
+				<i class="fa-solid fa-bars"></i>
+			</div>
+            <nav class="nav-links"> <!-- Cambié <ul> por <nav> para mantener coherencia con el script -->
+                <ul>
+                    <li>
+                        <a href="../index.php">
+                            <img src="../assets/img/logoclub.png" alt="Logo" class="img-logo" />
+                        </a>
+                    </li>
+                    <div class="menu-toggle">
+				<i class="fa-solid fa-bars"></i>
+			</div>
+                    <li>
+                        <a href="usuarios.php">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Usuarios</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="comentarios.php">
-                        <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                        </span>
-                        <span class="title">Comentarios</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="comentarios.php">
+                            <span class="icon">
+                                <ion-icon name="chatbubble-outline"></ion-icon>
+                            </span>
+                            <span class="title">Comentarios</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="productos.php">
-                        <span class="icon">
-                            <ion-icon name="leaf-outline"></ion-icon>
-                        </span>
-                        <span class="title">Productos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="reservas.php">
-                        <span class="icon">
-                            <ion-icon name="cart"></ion-icon>
-                        </span>
-                        <span class="title">Reservas</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="productos.php">
+                            <span class="icon">
+                                <ion-icon name="leaf-outline"></ion-icon>
+                            </span>
+                            <span class="title">Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reservas.php">
+                            <span class="icon">
+                                <ion-icon name="cart"></ion-icon>
+                            </span>
+                            <span class="title">Reservas</span>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="../index.php">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Volver</span>
-                    </a>
-                </li>
-            </ul>
+                    <li>
+                        <a href="../index.php">
+                            <span class="icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </span>
+                            <span class="title">Volver</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
         <!-- ========================= Main ==================== -->
         <div class="main">
             <div class="topbar">
-                <div class="toggle">
+                <!-- <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
-                </div>
+                </div> -->
 
                 <div class="container-actions">
                     <button onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? '../php/perfil.php' : '../registro.php'; ?>';">
@@ -220,10 +226,9 @@ include '../php/conection-be.php';
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/menu_ham.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
