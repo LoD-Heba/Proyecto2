@@ -68,9 +68,13 @@ session_start();
 						<?php endif; ?>
 					</button>
 				</div>
-				<form class="cerrar-sesion" action="php/logout.php" method="POST" onsubmit="return false;">
-                        <button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
-                    </form>
+				<?php
+				if (isset($_SESSION['correo'])): ?>
+					<form class="cerrar-sesion" action="php/logout.php" method="POST" onsubmit="return false;">
+						<button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
+					</form>
+				<?php endif; ?>
+
 			</nav>
 		</div>
 	</header>
@@ -79,7 +83,7 @@ session_start();
 	<section id="tienda" class="section-categories container">
 		<h2>Categorías</h2>
 
-<!-- CATEGORIAS NAV -->
+		<!-- CATEGORIAS NAV -->
 		<div class="container-cards-categories">
 			<div class="card-category" onclick="window.location.href='plantas_interior.php';" data-category="interior">
 				<div class="img-category">

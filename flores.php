@@ -66,6 +66,12 @@ session_start();
 						<?php endif; ?>
 					</button>
 				</div>
+				<?php
+				if (isset($_SESSION['correo'])): ?>
+					<form class="cerrar-sesion" action="php/logout.php" method="POST" onsubmit="return false;">
+						<button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
+					</form>
+				<?php endif; ?>
 			</nav>
 		</div>
 	</header>
