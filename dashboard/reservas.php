@@ -125,6 +125,74 @@ $result = mysqli_query($conection, $query);
                         <?php endif; ?>
                     </button>
                 </div>
+                <?php
+				if (isset($_SESSION['correo'])): ?>
+					<form class="cerrar-sesion" action="php/logout.php" method="POST" onsubmit="return false;">
+						<button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
+					</form>
+				<?php endif; ?>
+            </div>
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">Vistas</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div>
+                <a href="reservas.php" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                    <div>
+                        <?php
+                        $conection = mysqli_connect("localhost", "root", "", "club_frijol");
+                        $sql_count_ventas = "SELECT COUNT(*) as total_ventas FROM reservas";
+                        $result_count_ventas = mysqli_query($conection, $sql_count_ventas);
+                        $total_ventas = 0;
+                        if ($result_count_ventas) {
+                            $row_count_ventas = mysqli_fetch_assoc($result_count_ventas);
+                            $total_ventas = $row_count_ventas['total_ventas'];
+                        }
+                        ?>
+                        <div class="numbers"><?php echo $total_ventas; ?></div>
+                        <div class="cardName">Reservas</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </div>
+                </a>
+                </div>
+
+                <div>
+                    <a href="comentarios.php" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div>
+                                <?php
+                                $conection = mysqli_connect("localhost", "root", "", "club_frijol");
+                                $sql_count = "SELECT COUNT(*) as total_comentarios FROM comentarios";
+                                $result_count = mysqli_query($conection, $sql_count);
+                                $total_comentarios = 0;
+                                if ($result_count) {
+                                    $row_count = mysqli_fetch_assoc($result_count);
+                                    $total_comentarios = $row_count['total_comentarios'];
+                                }
+                                ?>
+                                <div class="numbers"><?php echo $total_comentarios; ?></div>
+                                <div class="cardName">Comentarios</div>
+                            </div>
+
+                            <div class="iconBx">
+                                <ion-icon name="chatbubbles-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <div class="details">

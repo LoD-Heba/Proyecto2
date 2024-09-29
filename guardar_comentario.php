@@ -2,6 +2,7 @@
 session_start();
 include 'php/conection-be.php';
 
+
 if (!isset($_SESSION['usuario'])) {
     echo '<script>alert("Debes iniciar sesión para comentar."); window.location.href = "php/login_user.php";</script>';
     exit();
