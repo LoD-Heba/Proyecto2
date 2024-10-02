@@ -11,6 +11,12 @@ include '../php/conection-be.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club del Frijol</title>
     <link rel="stylesheet" href="assets/css/estilosadmi.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Script alert -->
 </head>
@@ -18,11 +24,12 @@ include '../php/conection-be.php';
 <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-        <div class="navigation">
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+          <!-- Botón hamburguesa -->
 
+
+        <div class="navigation" id="navigation">
+            
+       
             <nav class="nav-links">
                 <ul>
                     <li>
@@ -30,9 +37,6 @@ include '../php/conection-be.php';
                             <img src="../assets/img/logoclub.png" alt="Logo" class="img-logo" />
                         </a>
                     </li>
-                    <div class="menu-toggle">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
                     <li>
                         <a href="usuarios.php">
                             <span class="icon">
@@ -218,8 +222,6 @@ include '../php/conection-be.php';
                             ?>
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
         </div>

@@ -8,10 +8,20 @@ list.forEach(item => {
 });
 
 
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links ul');
+// const menuToggle = document.querySelector('.menu-toggle');
+// const navigation = document.querySelector('.navigation');
+// const container = document.querySelector('container');
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  menuToggle.classList.toggle('active');
+// // Función para abrir/cerrar el menú
+// menuToggle.addEventListener('click', () => {
+//   navigation.classList.toggle('nav-active');
+// });
+const menuToggle = document.getElementById("menu-toggle");
+const navigation = document.getElementById("navigation");
+const main = document.querySelector(".main");
+
+menuToggle.addEventListener("click", () => {
+  navigation.classList.toggle("active");
+  menuToggle.classList.toggle("active");
+  main.classList.toggle("shifted");
 });

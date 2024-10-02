@@ -113,9 +113,6 @@ $result = mysqli_query($conection, $query);
         <!-- ========================= Main ==================== -->
         <div class="main">
             <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
                 <div class="container-actions">
                     <button onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? '../php/perfil.php' : '../registro.php'; ?>';">
                         <?php if (isset($_SESSION['correo'])): ?>

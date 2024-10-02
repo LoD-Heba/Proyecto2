@@ -89,7 +89,7 @@ $producto = mysqli_fetch_assoc($resultado);
     <meta charset="UTF-8">
     <title>Reservar Producto</title>
 </head>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <body>
     <h1>Reservar Producto: <br> <?php echo $producto['nombre']; ?></h1>
     <form action="procesar_reserva.php" method="POST">
@@ -101,10 +101,12 @@ $producto = mysqli_fetch_assoc($resultado);
         <label for="dias_reserva">Días de reserva (máximo 7):</label>
         <input type="number" name="dias_reserva" id="dias_reserva" required min="1" max="7"><br>
 
-        <button type="submit">Reservar</button>
+        <button type="submit" onclick="alertaExito()">Reservar</button>
         <button type="button" onclick="window.history.back()">Cancelar</button>
         
     </form>
-</body>
 
+
+</body>
+<script src="../assets/js/main.js"></script>
 </html>

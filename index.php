@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+	header("Location: ../index.php");
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +24,7 @@ session_start();
 		referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="assets/css/styles.css" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <!-- anuncios start-->
@@ -68,12 +73,6 @@ session_start();
 						<?php endif; ?>
 					</button>
 				</div>
-				<?php
-				if (isset($_SESSION['correo'])): ?>
-					<form class="cerrar-sesion" action="php/logout.php" method="POST" onsubmit="return false;">
-						<button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
-					</form>
-				<?php endif; ?>
 			</nav>
 		</div>
 	</header>
@@ -177,7 +176,7 @@ session_start();
 
 		<form id="form-comentario" class="form-comentar" method="POST" action="guardar_comentario.php">
 			<textarea name="comentario" placeholder="Deja tu comentario" required></textarea>
-			<button type="submit" class="btn-submit">Enviar comentario</button>
+			<button type="submit" class="btn-submit" onclick="alertaExito()">Enviar comentario</button>
 		</form>
 
 		<div id="carouselComentarios" class="carousel slide" data-bs-ride="carousel">
@@ -290,9 +289,7 @@ session_start();
 	</footer>
 	<script src="assets/js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-	<?php
-	mysqli_close($conection);
-	?>
+				
 </body>
 
 </html>

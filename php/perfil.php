@@ -106,7 +106,7 @@
                     }
                     ?>
                     <a href="../index.php">Inicio</a>
-                    <a href="../contactos">Contacto</a>
+                    <a href="../contactos.php">Contacto</a>
 
                     <div class="container-actions">
                         <button class="btn-perfil" onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? 'perfil.php' : 'registro.php'; ?>';">

@@ -64,3 +64,18 @@ function confirmarEliminar(event) {
         }
     });
 }
+
+function alertaExito(button) {
+	Swal.fire({
+		position: "top-end",
+		icon: "success",
+		title: "Cambios realizados",
+		showConfirmButton: false,
+		timer: 1800
+	  }).then((result) => {
+		if (result.isConfirmed) {
+			// Enviar el formulario si se confirma
+			button.closest('form').submit();
+		}
+	});
+}

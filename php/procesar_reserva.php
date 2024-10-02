@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$producto_id', '$usuario_id', '$cantidad', '$dias_reserva')";
 
     if (mysqli_query($conection, $sql)) {
-        echo '<script>alert("Reserva realizada exitosamente."); window.location.href = "' . $return_url . '";</script>'; //sweetalert
+        echo '<script> window.location.href = "' . $return_url . '";</script>'; //sweetalert
     } else {
         echo '<script>alert("Error al procesar la reserva."); window.location.href = "' . $return_url . '";</script>'; //Sweetalert
     }

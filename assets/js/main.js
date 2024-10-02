@@ -131,7 +131,7 @@ function alertaExito(button) {
 		icon: "success",
 		title: "Cambios realizados",
 		showConfirmButton: false,
-		timer: 2500
+		timer: 1500
 	  }).then((result) => {
 		if (result.isConfirmed) {
 			// Enviar el formulario si se confirma

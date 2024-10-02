@@ -14,7 +14,7 @@ $comentario = $_POST['comentario'];
 // Insertar el comentario en la base de datos
 $sql = "INSERT INTO comentarios (usuario_id, comentario) VALUES ('$usuario_id', '$comentario')";
 if (mysqli_query($conection, $sql)) {
-    echo '<script>alert("Comentario guardado correctamente."); window.location.href = "index.php";</script>'; //sweetalert
+    echo '<script>window.location.href = "index.php";</script>'; //sweetalert
 } else {
     echo '<script>alert("Error al guardar el comentario."); window.location.href = "index.php";</script>'; //sweetalert
 }

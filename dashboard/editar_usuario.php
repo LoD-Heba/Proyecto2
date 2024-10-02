@@ -114,8 +114,8 @@ if (isset($_POST['actualizar'])) {
             <label for="rol">Rol:</label>
             <input type="text" name="rol" id="rol" value="<?php echo $fila['rol']; ?>">
         </div>
-
-        <input type="submit" name="actualizar" value="Actualizar" class="btn-update">
+        <button type="submit" name="actualizar" onclick="alertaExito(this)">Actualizar Datos</button>
     </form>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/sweetalert.js"></script>
