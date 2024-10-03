@@ -256,18 +256,14 @@ session_start();
 				<div class="footer-column">
 					<h4 class="footer-column-title">Compañía</h4>
 					<ul>
-						<li><a href="#">Sobre Nosotros</a></li>
-						<li><a href="#">Contáctanos</a></li>
-						<li><a href="#">Política de Privacidad</a></li>
-						<li><a href="#">Carreras</a></li>
+						<li><a href="index.php">Inicio</a></li>
+						<li><a href="contactos.php">Contáctanos</a></li>
 					</ul>
 				</div>
 				<div class="footer-column">
-					<h4 class="footer-column-title">Servicio al Cliente</h4>
+					<h4 class="footer-column-title">Políticas de privacidad</h4>
 					
 					<p>&copy; 2024 Mi Tienda de Plantas. Todos los derechos reservados.</p>
-					<a href="#politica-privacidad">Política de Privacidad</a> | 
-					<a href="#terminos-condiciones">Términos y Condiciones</a>
 
 
 				</div>

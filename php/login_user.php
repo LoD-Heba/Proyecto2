@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include 'conection-be.php';
@@ -22,25 +21,17 @@ if (mysqli_num_rows($login) > 0) {
 
     echo '
         <script>
-            window.location = "../index.php";
+            window.location = "../index.php"; 
         </script>
     ';
 } else {
+    // Alerta si el login falla
     echo '
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Usuario o contraseña incorrectos",
-            confirmButtonText: "Volver",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location = "../registro.php";
-            }
-        });
-    </script>
-';
+        <script>
+        alert("Contraseña incorrecta");
+        window.location = "../registro.php";
+        </script>
+    ';
 }
 
 mysqli_close($conection);

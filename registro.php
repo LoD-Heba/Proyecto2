@@ -40,7 +40,6 @@ session_start();
 				}
 				?>
 				<a href="index.php">Inicio</a>
-				<a href="#tienda">Tienda</a>
 				<a href="contactos.php">Contacto</a>
 				<div class="container-actions">
 					<button onclick="window.location.href='<?php echo isset($_SESSION['correo']) ? 'php/perfil.php' : 'registro.php'; ?>';">
@@ -77,11 +76,12 @@ session_start();
 			<div class="contenedor__login-register">
 				<!--Login-->
 				<form action="php/login_user.php" class="formulario__login" method="POST">
-					<h2>Iniciar Sesión</h2>
-					<input type="email" placeholder="Correo Electronico" name="correo" required>
-					<input type="password" placeholder="Contraseña" name="clave" required>
-					<button>Entrar</button>
-				</form>
+				<h2>Iniciar Sesión</h2>
+				<input type="email" placeholder="Correo Electronico" name="correo" required>
+				<input type="password" placeholder="Contraseña" name="clave" required>
+				<button>Entrar</button>
+			</form>
+
 
 				<!--Register-->
 				<form action="php/user_register.php" method="POST" class="formulario__register" enctype="multipart/form-data">
@@ -109,6 +109,7 @@ session_start();
 		<div class="section-footer container">
 			<div class="footer-section-logo">
 				<img src="assets/img/logoclub.png" alt="Logo" class="img-logo" />
+
 				<p>
 					Ofrecemos una amplia variedad de plantas de interior y
 					exterior, perfectas para decorar tu hogar y mejorar tu
@@ -120,20 +121,16 @@ session_start();
 				<div class="footer-column">
 					<h4 class="footer-column-title">Compañía</h4>
 					<ul>
-						<li><a href="#">Sobre Nosotros</a></li>
-						<li><a href="#">Contáctanos</a></li>
-						<li><a href="#">Política de Privacidad</a></li>
-						<li><a href="#">Carreras</a></li>
+						<li><a href="index.php">Inicio</a></li>
+						<li><a href="contactos.php">Contáctanos</a></li>
 					</ul>
 				</div>
 				<div class="footer-column">
-					<h4 class="footer-column-title">Servicio al Cliente</h4>
-					<ul>
-						<li><a href="#">Preguntas Frecuentes</a></li>
-						<li><a href="#">Términos de Uso</a></li>
-						<li><a href="#">Condiciones de Pedido</a></li>
-						<li><a href="#">Métodos de Pago</a></li>
-					</ul>
+					<h4 class="footer-column-title">Políticas de privacidad</h4>
+					
+					<p>&copy; 2024 Mi Tienda de Plantas. Todos los derechos reservados.</p>
+
+
 				</div>
 				<div class="footer-column newsletter">
 					<h4 class="footer-column-title">
@@ -143,9 +140,9 @@ session_start();
 						Disfruta de un 15% de descuento en tu primer pedido
 						cuando te suscribas a nuestro boletín informativo
 					</p>
-
 				</div>
 			</div>
+
 		</div>
 	</footer>
 	<script src="assets/js/login.js"></script>

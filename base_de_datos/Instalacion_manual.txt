@@ -76,3 +76,4 @@ CREATE TABLE `reservas` (
   CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `registro_usuario` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+SELECT * FROM productos ORDER BY fecha DESC LIMIT 12

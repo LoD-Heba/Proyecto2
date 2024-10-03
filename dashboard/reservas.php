@@ -205,6 +205,7 @@ $result = mysqli_query($conection, $query);
                                         <td><?php echo htmlspecialchars($row['producto_nombre']); ?></td>
                                         <td><?php echo htmlspecialchars($row['cantidad']); ?></td>
                                         <td><?php echo htmlspecialchars($row['dias_reserva']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['Usuario']); ?></td>
                                         <td>
                                             <form id="deleteForm<?php echo $row['id']; ?>" action="eliminar_reserva.php" method="POST">
                                                 <input type="hidden" name="reserva_id" value="<?php echo $row['id']; ?>">

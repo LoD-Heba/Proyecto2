@@ -2,28 +2,26 @@
 session_start();
 include '../php/conection-be.php';
 
-if (!isset($_SESSION['usuario'])) {
-    echo '<script>alert("Debes iniciar sesión para comentar."); window.location.href = "usuarios.php";</script>';
+if (!isset($_SESSION['usuario']) || $_SESSION['rol'] != '1') {
+    echo '<script>alert("No tienes permiso para realizar esta acción."); window.location.href = "comentarios.php";</script>';
     exit();
 }
 
-if (!isset($_SESSION['usuario_id'])) {
-    echo '<script>alert("No se pudo identificar el usuario. Inicia sesión nuevamente."); window.location.href = "usuarios.php";</script>';
-    exit();
-}
+if (isset($_POST['comentarios'])) {
+    $comentariosSeleccionados = $_POST['comentarios'];
 
-if (isset($_GET['id'])) {
-    $comentario_id = $_GET['id']; 
-    $usuario_id = $_SESSION['usuario_id']; 
-    $sql = "DELETE FROM comentarios WHERE id = '$comentario_id' AND usuario_id = '$usuario_id'";
+    // Convertir el array de IDs de comentarios a una cadena separada por comas
+    $comentariosIds = implode(',', $comentariosSeleccionados);
 
+    // Eliminar los comentarios seleccionados
+    $sql = "DELETE FROM comentarios WHERE id IN ($comentariosIds)";
     if (mysqli_query($conection, $sql)) {
         echo '<script> window.location.href = "comentarios.php";</script>';
     } else {
-        echo '<script>alert("Error al eliminar el comentario."); window.location.href = "comentarios.php";</script>';
+        echo '<script>alert("Error al eliminar los comentarios."); window.location.href = "comentarios.php";</script>';
     }
 } else {
-    echo '<script>alert("No se pudo identificar el comentario."); window.location.href = "comentarios.php";</script>';
+    echo '<script>alert("No se seleccionaron comentarios para eliminar."); window.location.href = "comentarios.php";</script>';
 }
 
 mysqli_close($conection);

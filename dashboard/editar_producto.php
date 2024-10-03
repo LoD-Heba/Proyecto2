@@ -89,6 +89,60 @@ if (isset($_POST['actualizar'])) {
         font-size: 16px;
         resize: none;
     }
+ /* Oculta el input original de tipo archivo */
+input[type="file"] {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    font-size: 15px;
+    color: transparent;
+}
+
+/* Label personalizado que reemplaza al input de archivo */
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    background-color: #f1f1f1;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo al hacer hover en el label */
+.custom-file-label:hover {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+}
+
+/* Estilo cuando el input está activo o enfocado */
+input[type="file"]:focus + .custom-file-label {
+    border-color: #2E7D32;
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+}
+
+/* Contenedor para la previsualización de la imagen (opcional) */
+.image-preview {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ddd;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+}
 
     /* Botón de actualizar */
     .btn-update {
@@ -112,7 +166,7 @@ if (isset($_POST['actualizar'])) {
 </style>
 <!-- ESTILOS FIN -->
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Formulario para editar el usuario -->
 <div class="edit-product-container">
     <h2>Editar Producto</h2>
@@ -148,10 +202,16 @@ if (isset($_POST['actualizar'])) {
         </div>
 
         <div class="input-group">
-            <label for="imagen">Nueva Imagen (opcional):</label>
-            <input type="file" name="imagen" id="imagen">
-        </div>
+    <label class="custom-file-label" for="imagen">Seleccionar imagen</label>
+    <input type="file" name="imagen" id="imagen">
+    <div class="image-preview" id="imagePreview">
+        <img src="" alt="Vista previa" id="imagePreviewImg">
+    </div>
+</div>
 
-        <input type="submit" name="actualizar" value="Actualizar" class="btn-update">
+
+        <input type="submit" name="actualizar" value="Actualizar" class="btn-update" onclick="alertaExito(event)">
     </form>
 </div>
+<script src="assets/js/menu_ham.js"></script>
+<script src="../assets/js/sweetalert.js"></script>

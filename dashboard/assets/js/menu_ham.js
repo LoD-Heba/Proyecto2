@@ -7,6 +7,25 @@ list.forEach(item => {
     }
 });
 
+const inputFile = document.getElementById("imagen");
+const imagePreview = document.getElementById("imagePreview");
+const imagePreviewImg = document.getElementById("imagePreviewImg");
+
+inputFile.addEventListener("change", function () {
+    const file = this.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        imagePreview.style.display = "flex"; // Muestra el contenedor de la imagen
+        reader.addEventListener("load", function () {
+            imagePreviewImg.setAttribute("src", this.result);
+        });
+        reader.readAsDataURL(file);
+    } else {
+        imagePreview.style.display = "none"; // Oculta la vista previa si no hay archivo
+        imagePreviewImg.setAttribute("src", "");
+    }
+});
 
 // const menuToggle = document.querySelector('.menu-toggle');
 // const navigation = document.querySelector('.navigation');

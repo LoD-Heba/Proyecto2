@@ -87,6 +87,32 @@ if (isset($_POST['actualizar'])) {
         background-color: #2a5542;
         box-shadow: 0 6px 12px rgba(59, 110, 88, 0.4);
     }
+    .myButton {
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+    
 </style>
 <!-- ESTILOS FIN -->
 
@@ -114,7 +140,9 @@ if (isset($_POST['actualizar'])) {
             <label for="rol">Rol:</label>
             <input type="text" name="rol" id="rol" value="<?php echo $fila['rol']; ?>">
         </div>
-        <button type="submit" name="actualizar" onclick="alertaExito(this)">Actualizar Datos</button>
+        <button class="myButton" type="submit" name="actualizar" onclick="alertaExito(this)">Actualizar Datos</button>
+        <button class="myButton" type="button" onclick="window.history.back()">Cancelar</button>
+
     </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

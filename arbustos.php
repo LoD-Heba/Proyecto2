@@ -157,20 +157,16 @@ session_start();
 				<div class="footer-column">
 					<h4 class="footer-column-title">Compañía</h4>
 					<ul>
-						<li><a href="#">Sobre Nosotros</a></li>
-						<li><a href="#">Contáctanos</a></li>
-						<li><a href="#">Política de Privacidad</a></li>
-						<li><a href="#">Carreras</a></li>
+						<li><a href="index.php">Inicio</a></li>
+						<li><a href="contactos.php">Contáctanos</a></li>
 					</ul>
 				</div>
 				<div class="footer-column">
-					<h4 class="footer-column-title">Servicio al Cliente</h4>
-					<ul>
-						<li><a href="#">Preguntas Frecuentes</a></li>
-						<li><a href="#">Términos de Uso</a></li>
-						<li><a href="#">Condiciones de Pedido</a></li>
-						<li><a href="#">Métodos de Pago</a></li>
-					</ul>
+					<h4 class="footer-column-title">Políticas de privacidad</h4>
+					
+					<p>&copy; 2024 Mi Tienda de Plantas. Todos los derechos reservados.</p>
+
+
 				</div>
 				<div class="footer-column newsletter">
 					<h4 class="footer-column-title">
@@ -182,6 +178,7 @@ session_start();
 					</p>
 				</div>
 			</div>
+
 		</div>
 	</footer>
 	<script src="assets/js/posicion-user.js"></script>

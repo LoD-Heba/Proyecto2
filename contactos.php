@@ -34,6 +34,23 @@ session_start();
         margin-top: 50px;
         text-align: center;
     }
+    .whatsapp {
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  z-index:100;
+}
+
+.whatsapp-icon {
+  margin-top:13px;
+}
 </style>
 <!-- Estilos fin -->
 
@@ -56,6 +73,7 @@ session_start();
         referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <!-- anuncios start-->
 
@@ -70,6 +88,7 @@ session_start();
                 <i class="fa-regular fa-envelope"></i>
                 zegion511@gmail.com
             </p>
+            <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
         </div>
 
 
@@ -151,6 +170,7 @@ session_start();
                 <h2>Información de Contacto</h2>
                 <p><strong>Dirección:</strong> Sacaba</p>
                 <p><strong>Teléfono:</strong> +591 ########</p>
+                
             </div>
         </div>
     </section>
@@ -161,48 +181,45 @@ session_start();
         <!-- Contenido end -->
 
         <footer>
-            <div class="section-footer container">
-                <div class="footer-section-logo">
-                    <img src="assets/img/logoclub.png" alt="Logo" class="img-logo" />
+		<div class="section-footer container">
+			<div class="footer-section-logo">
+				<img src="assets/img/logoclub.png" alt="Logo" class="img-logo" />
 
-                    <p>
-                        Ofrecemos una amplia variedad de plantas de interior y
-                        exterior, perfectas para decorar tu hogar y mejorar tu
-                        bienestar. Nuestra misión es conectar a las personas con
-                        la naturaleza.
-                    </p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4 class="footer-column-title">Compañía</h4>
-                        <ul>
-                            <li><a href="#">Sobre Nosotros</a></li>
-                            <li><a href="#">Contáctanos</a></li>
-                            <li><a href="#">Política de Privacidad</a></li>
-                            <li><a href="#">Carreras</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4 class="footer-column-title">Servicio al Cliente</h4>
-                        <ul>
-                            <li><a href="#">Preguntas Frecuentes</a></li>
-                            <li><a href="#">Términos de Uso</a></li>
-                            <li><a href="#">Condiciones de Pedido</a></li>
-                            <li><a href="#">Métodos de Pago</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column newsletter">
-                        <h4 class="footer-column-title">
-                            Suscríbete a nuestros Emails
-                        </h4>
-                        <p>
-                            Disfruta de un 15% de descuento en tu primer pedido
-                            cuando te suscribas a nuestro boletín informativo
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+				<p>
+					Ofrecemos una amplia variedad de plantas de interior y
+					exterior, perfectas para decorar tu hogar y mejorar tu
+					bienestar. Nuestra misión es conectar a las personas con
+					la naturaleza.
+				</p>
+			</div>
+			<div class="footer-links">
+				<div class="footer-column">
+					<h4 class="footer-column-title">Compañía</h4>
+					<ul>
+						<li><a href="index.php">Inicio</a></li>
+						<li><a href="contactos.php">Contáctanos</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4 class="footer-column-title">Políticas de privacidad</h4>
+					
+					<p>&copy; 2024 Mi Tienda de Plantas. Todos los derechos reservados.</p>
+
+
+				</div>
+				<div class="footer-column newsletter">
+					<h4 class="footer-column-title">
+						Suscríbete a nuestros Emails
+					</h4>
+					<p>
+						Disfruta de un 15% de descuento en tu primer pedido
+						cuando te suscribas a nuestro boletín informativo
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/posicion-user.js"></script>
 </body>

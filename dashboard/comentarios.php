@@ -180,66 +180,69 @@ function tiempo_transcurrido($fecha)
             </div>
             <!-- Comentarios start -->
             <div class="details">
-                <div class="recentOrders">
-                    <h1>Lista de Comentarios</h1>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Usuario</th>
-                                <th>Comentario</th>
-                                <th>Fecha</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
+    <div class="recentOrders">
+        <h1>Lista de Comentarios</h1>
+        <form method="POST" action="eliminar_comentario.php">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Comentario</th>
+                        <th>Fecha</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
 
-                        <tbody>
-                            <?php
-                            if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['rol'])) {
-                                header("Location: ../php/login_user.php");
-                                exit();
-                            }
-                            $conection = mysqli_connect("localhost", "root", "", "club_frijol");
-                            if (!$conection) {
-                                die("Conexión fallida: " . mysqli_connect_error());
-                            }
+                <tbody>
+                    <?php
+                    if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['rol'])) {
+                        header("Location: ../php/login_user.php");
+                        exit();
+                    }
 
-                            $sql = "SELECT c.id, u.usuario, c.comentario, c.fecha
-        FROM comentarios c
-        JOIN registro_usuario u ON c.usuario_id = u.id
-        ORDER BY c.fecha DESC";
-                            $resultado = mysqli_query($conection, $sql);
+                    $conection = mysqli_connect("localhost", "root", "", "club_frijol");
+                    if (!$conection) {
+                        die("Conexión fallida: " . mysqli_connect_error());
+                    }
 
-                            if (mysqli_num_rows($resultado) > 0) {
-                                while ($comentario = mysqli_fetch_assoc($resultado)) {
-                                    echo "<tr>";
-                                    echo "<td>" . $comentario['id'] . "</td>";
-                                    echo "<td>" . $comentario['usuario'] . "</td>";
-                                    echo "<td>" . $comentario['comentario'] . "</td>";
+                    $sql = "SELECT c.id, u.usuario, c.comentario, c.fecha
+                    FROM comentarios c
+                    JOIN registro_usuario u ON c.usuario_id = u.id
+                    ORDER BY c.fecha DESC";
+                    $resultado = mysqli_query($conection, $sql);
 
-                                    // Calcula el tiempo transcurrido desde la fecha del comentario
-                                    echo "<td>" . tiempo_transcurrido($comentario['fecha']) . "</td>";
+                    if (mysqli_num_rows($resultado) > 0) {
+                        while ($comentario = mysqli_fetch_assoc($resultado)) {
+                            echo "<tr>";
+                            echo "<td>" . $comentario['id'] . "</td>";
+                            echo "<td>" . $comentario['usuario'] . "</td>";
+                            echo "<td>" . $comentario['comentario'] . "</td>";
 
-                                    if ($_SESSION['rol'] == '1') {
-                                        echo "<td>
-                                                <a class='myButton1' href='eliminar_comentario.php?id=" . $comentario['id'] . "' onclick='return eliminar_comentario(event)'>Eliminar</a>
-                                            </td>";
-                                    } else {
-                                        echo "<td>-</td>";
-                                    }
+                            // Calcula el tiempo transcurrido desde la fecha del comentario
+                            echo "<td>" . tiempo_transcurrido($comentario['fecha']) . "</td>";
 
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='5'>No hay comentarios disponibles</td></tr>";
-                            }
+                            // Añadir checkbox para seleccionar comentario
+                            echo "<td><input type='checkbox' name='comentarios[]' value='" . $comentario['id'] . "'></td>";
 
-                            mysqli_close($conection);
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5'>No hay comentarios disponibles</td></tr>";
+                    }
+
+                    mysqli_close($conection);
+                    ?>
+                </tbody>
+            </table>
+
+            <!-- Botón para eliminar seleccionados -->
+            <button type="submit" class="myButton1" onclick="alertaExito(event)">Eliminar seleccionados</button>
+        </form>
+    </div>
+</div>
+
+
         </div>
         <!-- =========== Scripts =========  -->
         <script src="../assets/js/sweetalert.js"></script>
