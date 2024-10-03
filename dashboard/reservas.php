@@ -122,12 +122,6 @@ $result = mysqli_query($conection, $query);
                         <?php endif; ?>
                     </button>
                 </div>
-                <?php
-				if (isset($_SESSION['correo'])): ?>
-					<form class="cerrar-sesion" action="php/logout.php" method="POST" onsubmit="return false;">
-						<button type="button" onclick="confirmLogout(this)">Cerrar Sesión</button>
-					</form>
-				<?php endif; ?>
             </div>
             <div class="cardBox">
                 <div class="card">

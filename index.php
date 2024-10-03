@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario'])) {
-	header("Location: ../index.php");
-	exit();
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -267,12 +264,12 @@ if (!isset($_SESSION['usuario'])) {
 				</div>
 				<div class="footer-column">
 					<h4 class="footer-column-title">Servicio al Cliente</h4>
-					<ul>
-						<li><a href="#">Preguntas Frecuentes</a></li>
-						<li><a href="#">Términos de Uso</a></li>
-						<li><a href="#">Condiciones de Pedido</a></li>
-						<li><a href="#">Métodos de Pago</a></li>
-					</ul>
+					
+					<p>&copy; 2024 Mi Tienda de Plantas. Todos los derechos reservados.</p>
+					<a href="#politica-privacidad">Política de Privacidad</a> | 
+					<a href="#terminos-condiciones">Términos y Condiciones</a>
+
+
 				</div>
 				<div class="footer-column newsletter">
 					<h4 class="footer-column-title">

@@ -80,7 +80,9 @@ session_start();
 <body>
     <header>
         <div class="container section-logo">
-            <img src="assets/img/logoclub.png" alt="Logo" class="img-logo" />
+            <a href="index.php">
+				<img src="assets/img/logoclub.png" alt="Logo" class="img-logo" />
+			</a>
 
             <div class="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
