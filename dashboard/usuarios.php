@@ -24,12 +24,9 @@ include '../php/conection-be.php';
 <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-          <!-- Botón hamburguesa -->
-
+        <!-- Botón hamburguesa -->
 
         <div class="navigation" id="navigation">
-            
-       
             <nav class="nav-links">
                 <ul>
                     <li>
@@ -161,7 +158,7 @@ include '../php/conection-be.php';
 
             <?php
             // Consulta para obtener los registros de los usuarios
-            $sql = "SELECT id, nombre, correo, usuario, rol, clave FROM registro_usuario";
+            $sql = "SELECT id, nombre, correo, usuario, telefono, rol, clave FROM registro_usuario";
             $resultado = mysqli_query($conection, $sql);
             ?>
             <div class="details">
@@ -174,6 +171,7 @@ include '../php/conection-be.php';
                                 <th>Nombre</th>
                                 <th>Correo</th>
                                 <th>Usuario</th>
+                                <th>Teléfono</th>
                                 <th>Rol</th>
                                 <th>Editor</th>
                             </tr>
@@ -182,7 +180,7 @@ include '../php/conection-be.php';
                         <tbody>
                             <?php
                             // Consulta SQL para obtener usuarios y sus roles
-                            $sql = "SELECT registro_usuario.id, registro_usuario.nombre, registro_usuario.correo, registro_usuario.usuario, permisos.rol 
+                            $sql = "SELECT registro_usuario.id, registro_usuario.nombre, registro_usuario.correo, registro_usuario.usuario, registro_usuario.telefono, permisos.rol 
                 FROM registro_usuario
                 LEFT JOIN permisos ON registro_usuario.rol = permisos.id";
                             $resultado = mysqli_query($conection, $sql);
@@ -194,6 +192,7 @@ include '../php/conection-be.php';
                                     echo "<td>" . $fila['nombre'] . "</td>";
                                     echo "<td>" . $fila['correo'] . "</td>";
                                     echo "<td>" . $fila['usuario'] . "</td>";
+                                    echo "<td>" . $fila['telefono'] . "</td>";  // Nueva columna para teléfono
                                     echo "<td>" . $fila['rol'] . "</td>";
 
                                     // Verifica si el rol no es "Administrador"
@@ -211,7 +210,7 @@ include '../php/conection-be.php';
                                     echo "</tr>";
                                 }
                             } else {
-                                echo "<tr><td colspan='6'>No hay usuarios registrados</td></tr>";
+                                echo "<tr><td colspan='7'>No hay usuarios registrados</td></tr>";
                             }
                             ?>
                         </tbody>
@@ -225,7 +224,7 @@ include '../php/conection-be.php';
     <script src="assets/js/menu_ham.js"></script>
     <script src="../assets/js/sweetalert.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

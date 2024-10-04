@@ -12,10 +12,12 @@ include '../php/conection-be.php';
 $usuario_id = $_SESSION['usuario_id'];
 
 // Obtener las reservas del usuario
-$query = "SELECT r.id, p.nombre AS producto_nombre, r.cantidad, r.dias_reserva 
+$query = "SELECT r.id, p.nombre AS producto_nombre, r.cantidad, r.dias_reserva, u.telefono 
           FROM reservas r 
           JOIN productos p ON r.producto_id = p.id 
+          JOIN registro_usuario u ON r.usuario_id = u.id 
           WHERE r.usuario_id = '$usuario_id'";
+
 $result = mysqli_query($conection, $query);
 ?>
 
@@ -191,31 +193,32 @@ $result = mysqli_query($conection, $query);
                     <h1>Lista de productos</h1>
                     <?php if (mysqli_num_rows($result) > 0): ?>
                         <table>
-                            <thead>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Días de Reserva</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                                    <tr>
-                                        <td><?php echo htmlspecialchars($row['producto_nombre']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['cantidad']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['dias_reserva']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['Usuario']); ?></td>
-                                        <td>
-                                            <form id="deleteForm<?php echo $row['id']; ?>" action="eliminar_reserva.php" method="POST">
-                                                <input type="hidden" name="reserva_id" value="<?php echo $row['id']; ?>">
-                                                <button type="button" class="myButton1" onclick="eliminar_reserva(<?php echo $row['id']; ?>)">Eliminar</button>
-                                            </form>
+                        <thead>
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Días de Reserva</th>
+        <th>Teléfono</th> <!-- Nueva columna -->
+        <th>Acciones</th>
+    </tr>
+</thead>
+<tbody>
+    <?php while ($row = mysqli_fetch_assoc($result)): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($row['producto_nombre']); ?></td>
+            <td><?php echo htmlspecialchars($row['cantidad']); ?></td>
+            <td><?php echo htmlspecialchars($row['dias_reserva']); ?></td>
+            <td><?php echo htmlspecialchars($row['telefono']); ?></td> <!-- Mostrar teléfono -->
+            <td>
+                <form id="deleteForm<?php echo $row['id']; ?>" action="eliminar_reserva.php" method="POST">
+                    <input type="hidden" name="reserva_id" value="<?php echo $row['id']; ?>">
+                    <button type="button" class="myButton1" onclick="eliminar_reserva(<?php echo $row['id']; ?>)">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    <?php endwhile; ?>
+</tbody>
 
-                                        </td>
-                                    </tr>
-                                <?php endwhile; ?>
-                            </tbody>
                         </table>
                     <?php else: ?>
                         <p>No tienes reservas activas.</p>

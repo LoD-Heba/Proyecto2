@@ -5,6 +5,7 @@ $nombre = $_POST['nombre'];
 $correo = $_POST['correo'];
 $usuario = $_POST['usuario'];
 $clave = $_POST['clave'];
+$telefono = $_POST['telefono']; // Nuevo campo de teléfono
 $foto_perfil = "uploads/default-avatar.png";
 
 // Verificar si el correo ya existe
@@ -32,8 +33,8 @@ if (mysqli_num_rows($verificarNombre) > 0) {
 }
 
 // Registrar
-$registrar = "INSERT INTO registro_usuario(nombre, correo, usuario, clave, foto_perfil, rol) 
-              VALUES('$nombre', '$correo', '$usuario', '$clave', '$foto_perfil', 2)";
+$registrar = "INSERT INTO registro_usuario(nombre, correo, usuario, clave, telefono, foto_perfil, rol) 
+              VALUES('$nombre', '$correo', '$usuario', '$clave', '$telefono', '$foto_perfil', 2)"; // Agregar el campo de teléfono
 
 if (mysqli_query($conection, $registrar)) {
     echo '
@@ -52,3 +53,4 @@ if (mysqli_query($conection, $registrar)) {
 }
 
 mysqli_close($conection);
+?>

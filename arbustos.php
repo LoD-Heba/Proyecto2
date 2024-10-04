@@ -53,9 +53,9 @@ session_start();
 			</div>
 
 			<nav class="nav-links">
-				<?php
+			<?php
 				if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-					echo '<a href="dashboard/usuarios.php">Admi</a>';
+					echo '<a href="dashboard/usuarios.php">Administrador</a>';
 				}
 				?>
 				<a href="index.php">Inicio</a>

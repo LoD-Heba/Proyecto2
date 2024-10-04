@@ -36,7 +36,7 @@ session_start();
 			<nav class="nav-links">
 				<?php
 				if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-					echo '<a href="dashboard/usuarios.php">Admi</a>';
+					echo '<a href="dashboard/usuarios.php">Administrador</a>';
 				}
 				?>
 				<a href="index.php">Inicio</a>
@@ -76,35 +76,28 @@ session_start();
 			<div class="contenedor__login-register">
 				<!--Login-->
 				<form action="php/login_user.php" class="formulario__login" method="POST">
-				<h2>Iniciar Sesión</h2>
-				<input type="email" placeholder="Correo Electronico" name="correo" required>
-				<input type="password" placeholder="Contraseña" name="clave" required>
-				<button>Entrar</button>
-			</form>
+					<h2>Iniciar Sesión</h2>
+					<input type="email" placeholder="Correo Electronico" name="correo" required>
+					<input type="password" placeholder="Contraseña" name="clave" required>
+					<button>Entrar</button>
+				</form>
 
 
 				<!--Register-->
 				<form action="php/user_register.php" method="POST" class="formulario__register" enctype="multipart/form-data">
-					<?php
-					if (isset($message)) {
-						foreach ($message as $message) {
-							echo '<div class="message">' . $message . '</div>';
-						}
-					}
-					?>
-					<h2>Regístrarse</h2>
 					<input type="text" placeholder="Nombre completo" name="nombre" required>
 					<input type="email" placeholder="Correo Electronico" name="correo" required>
 					<input type="text" placeholder="Usuario" name="usuario" required>
 					<input type="password" placeholder="Contraseña" name="clave" required>
-
+					<input type="text" placeholder="Número de teléfono" name="telefono" required>
 					<button>Regístrarse</button>
 				</form>
+
 			</div>
 		</div>
 
 	</main>
-	
+
 	<footer>
 		<div class="section-footer container">
 			<div class="footer-section-logo">
@@ -127,7 +120,7 @@ session_start();
 				</div>
 				<div class="footer-column">
 					<h4 class="footer-column-title">Políticas de privacidad</h4>
-					
+
 					<p>&copy; 2024 Mi Tienda de Plantas. Todos los derechos reservados.</p>
 
 
